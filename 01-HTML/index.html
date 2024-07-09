@@ -10,6 +10,11 @@
 </head>
 
 <body>
+	<menu lable="Menu1" type="context">
+		<menuitem>Item 1</menuitem>
+		<menuitem>Item 2</menuitem>
+		<menuitem>Item 3</menuitem>
+	</menu>
 	<h1>Заголовок 1 !!! Может быть только один на страницу !!! (Это как название книги)</h1>
 	<hr>
 	<!--<h2>Заголовок 2</h2>
@@ -18,8 +23,9 @@
 	<h5>Заголовок 5</h5>
 	<h6>Заголовок 6</h6>
 	<hr>-->
-	<h2>Дескрипторы (Tags)</h2>
-	<h3>Блочные дескрипторы</h3>
+	<a href="https://litecoin.com" target="_blank"><img src="litecoin.png" alt="Litecoin" align="right"/></a>
+	<h2 contextmenu="Menu1">Дескрипторы (Tags)</h2>
+	<h3 contextmenu="Menu1">Блочные дескрипторы</h3>
 	<p>
 		<b>&#60;p&#62; (Paragraph)</b> - блочный дескриптор, который описывает абзац и поодерживает следубщие атрибуты:
 		<br>
@@ -28,16 +34,20 @@
 
 	<h3>Линейные дескрипторы</h3>
 	<p>
-	<b>&lt;b&gt; (bold)</b> - линейный парный дескриптор, который делает шрифт полужирным.<br>
-	<b>&lt;i&gt;</b> (<i>italic</i>) - линейный парный дескриптор, который делает шрифт полужирным.<br>
-	<b>&lt;u&gt;</b> (<u>underline</u>) - линейный парный дескриптор, который делает шрифт полужирным.<br>
-	<b>&lt;s&gt;</b> (<s>strikeout</s>) - линейный парный дескриптор, который делает шрифт полужирным.<br>
-	<b>&lt;strike&gt;</b> (<strike>strikeout</strike>) - линейный парный дескриптор, который делает шрифт полужирным.<br>
-	<b>&lt;big&gt;</b>  - линейный парный дескриптор, который делает размер шрифта на 1 больше базового (Базовы шрифт в любом браузере = <tt><b>16pt</b></tt>).
-	<b>&lt;small&gt;</b>  - линейный парный дескриптор, который делает размер шрифта на 1 меньше базового.<br>
-	<b>&lt;sub&gt;</b>  - нижний индекс.<br>
-	<b>&lt;sup&gt;</b>  - верхний индекс.<br>
+		<b>&lt;b&gt; (bold)</b> &ndash; линейный парный дескриптор, который делает шрифт полужирным.<br>
+		<b>&lt;i&gt;</b> (<i>italic</i>) &ndash; линейный парный дескриптор, который делает шрифт полужирным.<br>
+		<b>&lt;u&gt;</b> (<u>underline</u>) &ndash; линейный парный дескриптор, который делает шрифт полужирным.<br>
+		<b>&lt;s&gt;</b> (<s>strikeout</s>) &ndash; линейный парный дескриптор, который делает шрифт полужирным.<br>
+		<b>&lt;strike&gt;</b> (<strike>strikeout</strike>) &ndash; линейный парный дескриптор, который делает шрифт полужирным.<br>
+		<b>&lt;big&gt;</b>  &ndash; линейный парный дескриптор, который делает размер шрифта на 1 больше базового (Базовы шрифт в любом браузере = <tt><b>16pt</b></tt>).
+		<b>&lt;small&gt;</b>  &ndash; линейный парный дескриптор, который делает размер шрифта на 1 меньше базового.<br>
+		<b>&lt;sub&gt;</b>  &ndash; нижний индекс.<br>
+		<b>&lt;sup&gt;</b>  &ndash; верхний индекс.<br>
 	</p>
+	<p>
+		Специальные символы можно отображать на странице при помощи числовых кодов, или их символических аналогов. Большинсво специальных символов можно найти <a href="https://htmlbook.ru/samhtml/tekst/spetssimvoly" target="_blank">здесь</a>.
+	</p>
+	<!--<img src="Shapes.jpg"/>-->
 	<p>
 		<b><i><u>Линейные дескрипторы можно вкладывать друг в друга, но важно чтобы посделний открытый дескриптор закрывался первым</u></i></b>
 	</p>
@@ -49,7 +59,47 @@
 	</p>
 	<p align="center">
 		<big><big><b><i>N = a<sup>n</sup></i></b></big></big>;
+		<!--
+	  
+			<small>
+			<sub>
+			<sup>
+			<strong>
+			<em> emphasized
+			<samp> - привмер
+			<abbr> (Abbreviation - Сокращение)
+			<acronym> title
+  -->
 	</p>
+	<hr>
+	<h2>Списки</h2>
+	<p>
+		Списки бывают <em>нумерованные</em> и <em>маркированные</em>.
+		Нумерованный список помещается в парный дескриптор <strong>&#60;ol&#62;</strong>, что означает <em>Ordered List</em>(Сортированный список).
+		Маркированные списки помещаются в парный дескриптор <strong>&lt;ul&gt;</strong> &ndash; <em>Unordered List</em> (Несортированный список).
+		Пункты как ипркированных, так и нумерованных списков обозначаются дескриптором <strong>&lt;li&gt;</strong> &ndash; <em>List Item</em>.
+		<h3>Макированный список:</h3>
+		<ul type="circle">
+			<li>Item1</li>
+			<li>Item2</li>
+			<li>Item3</li>
+		</ul>
+		<h3>Нумерованный список:</h3>
+		<ol>
+			<li>Item 1;</li>
+			<li>
+				Item 2:
+				<ul type="disc">
+					<li>Item;</li>
+					<li>Item;</li>
+				</ul>
+			</li>
+			<li>Item 3;</li>
+		</ol>
+	</p>
+	<hr />
+	<h2>Глобальные атрибуты</h2>
+	<p>Применимы ко всем дескрипторам. Список всех глобальных атрибутов <a href="https://htmlbook.ru/html/attr/common" target="_blank">здесь</a> и <a href="https://developer.mozilla.org/ru/docs/Web/HTML/Global_attributes" target="_blank">здесь</a></p>
 
 	<!--<p align="justify">
 		This statement assigns to variable x the value contained in variable y. The value of x at the moment this statement is executed is lost and replaced by the value of y.
