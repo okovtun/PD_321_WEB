@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="utf-8">
+	<title>Lists</title>
+</head>
+<body>
+	<h1>Списки</h1>
+	<p>
+		<strong>Список (List)</strong> &ndash; это последовательность элементов. Списки бывают <strong>нумерованные (OrderedList &ndash; <code>&lt;ol&gt;</code>)</strong> и <strong>макированные (UnorderedList &ndash; <code>&lt;ul&gt;</code>)</strong>.
+		Элементы как нумерованного, так и маркированного списка создаются дескрипторм <code>&lt;li&gt; - ListItem</code>.
+		<strong>Ни нумерованный ни маркированный списки ни в коем случае НЕ создаются внутри абзаца</strong>.
+	</p>
+	<ul>
+		<li>Элемент 1</li>
+		<li>Элемент 2</li>
+		<li>Элемент 3</li>
+	</ul>
+	<ol type="1" start="7">
+		<li>Item</li>
+		<li>Item</li>
+		<li>Item</li>
+		<li>
+			Item
+			<p>Дополнительные комментарии к этому пункту.</p>
+		</li>
+		<li>Item</li>
+		<li value="123">Item</li>
+		<li>Item</li>
+		<li>Item</li>
+		<li>
+			Item
+			<ul>
+				<li>Subitem 1</li>
+				<li>Subitem 2</li>
+				<li>Subitem 3</li>
+			</ul>
+		</li>
+		<li value="15">Item</li>
+		<li>Item</li>
+		<li>Item</li>
+		
+	</ol>
+</body>
+</html>

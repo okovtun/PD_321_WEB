@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="utf-8">
+	<title>CSS Styles</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Playwrite+CU:wght@100..400&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+	<style>
+		/*Selector*/
+		h1
+		{
+			text-align: center;
+			font-family: Playwrite CU
+		}
+		p	
+		{
+			font-family:Roboto;
+			text-align:justify;
+			font-size:124%;
+		}
+		/*Таким образом обозначаются селекторы, созданные при помощи атрибута 'id'. Этот атрибут позволяет создать уникальное имя, применимое только к одному дескриптору.*/
+		#one
+		{
+			color:green;
+		}
+		.paragraph
+		{
+			margin:16px 32px;
+			border-style:solid;
+			border-width:24px;
+			border-color:green;
+			padding:48px;
+		}
+	</style>
+</head>
+<body>
+	<h1>SCC Styles</h1>
+	<p>A simple C++ statement is each of the individual instructions of a program, like the variable declarations and expressions seen in previous sections. They always end with a semicolon (;), and are executed in the same order in which they appear in a program.</p>
+
+	<p id="one">But programs are not limited to a linear sequence of statements. During its process, a program may repeat segments of code, or take decisions and bifurcate. For that purpose, C++ provides flow control statements that serve to specify what has to be done by our program, when, and under which circumstances.</p>
+
+	<p class="paragraph">Many of the flow control statements explained in this section require a generic (sub)statement as part of its syntax. This statement may either be a simple C++ statement, -such as a single instruction, terminated with a semicolon (;) - or a compound statement. A compound statement is a group of statements (each of them terminated by its own semicolon), but all grouped together in a block, enclosed in curly braces: {}:</p>
+
+	<p>
+		The entire block is considered a single statement (composed itself of multiple substatements). Whenever a generic statement is part of the syntax of a flow control statement, this can either be a simple statement or a compound statement.
+
+	</p>
+</body>
+</html>
