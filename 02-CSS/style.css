@@ -1,0 +1,28 @@
+﻿body
+{
+    /*background-color:burlywood;*/
+    font-size:32px;
+}
+ul {
+    /*color:blue;*/
+    /*list-style-type:circle;*//*circle | disc | square*/
+    /*
+        JPEG
+        PNG
+        GIF
+        BMP
+    */
+    /*list-style-image: url(litecoin32px.png);*/
+    /*text-align:center;*/
+    /*list-style-position:outside;*/
+    list-style:circle url(litecoin.svg) inside;
+}
+ol {
+    /*color: green;*/
+    /*decimal | georgian | */
+    list-style-type: lower-latin;
+    list-style-image:none;
+}
+.bitcoin {
+    list-style-image:url(bitcoin.ico);
+}
