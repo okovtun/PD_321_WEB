@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Отношения между дескрипторами</title>
+	<style>
+		body {
+			font-family:Arial;
+			font-size:44px;
+		}
+		p > b {
+			color:red;
+		}
+		p   u {
+			color:blue !important;
+		}
+		b > u {
+			color:green;
+		}
+		/*
+			+ - непосредственная последовательность дескрипторов
+		*/
+		em + span {
+			color:red;
+		}
+		/*
+			~ - в последовательности дескрипторов могут встречаться другие дескрипторы.
+		*/
+		em ~ strong {
+			color:blue;
+		}
+	</style>
+</head>
+<body>
+	<p>T<b>E<u>X</u>T</b></p>
+	<p>T
+	<em>E</em>
+	<span>X</span>
+	<strong>T</strong>
+			  2
+	</p>
+</body>
+</html>

@@ -1,0 +1,127 @@
+﻿﻿<!DOCTYPE html>
+
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <title>DataTypes</title>
+    <link rel="icon" href="c++.ico" type="image/x-icon">
+    <style>
+        .mytext {
+            color: #f4f4fd;
+            font-family: 'Comic Sans MS';
+            margin: 10px;
+            padding: 10px;
+        }
+
+        a:any-link {
+            color: #bae8fe;
+            background-color: transparent;
+            text-decoration: none;
+        }
+
+        a:visited {
+            color: #9f8bf7;
+            background-color: transparent;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #8bceed;
+            background-color: transparent;
+            text-decoration: none;
+        }
+
+        .row {
+            display: flex;
+        }
+
+        .column {
+            flex: 100%;
+        }
+    </style>
+</head>
+<body style="background-color:#1b1b1e">
+    <h1 class="mytext" style="text-align:center">DataTypes</h1>
+    <hr />
+
+    <div class="mytext row">
+        <div>
+            <h2>С++ supports the following data types:</h2>
+            <p>
+                <div style="font-size:140%">
+                    <b>1. Primary</b> data types<br />
+                    Built-in or predefined data types that can be used directly by the user to declare variables.
+                </div>
+                <div style="font-size:130%; padding-left:40px">
+                    <b>•<a href="#int">integer</a></b><br />
+                    <b>•<a href="#char">character</a></b><br />
+                    <b>•<a href="#bool">boolean</a></b><br />
+                    <b>•<a href="#float">floating point</a></b><br />
+                    <b>•<a href="#double">double floating point</a></b><br />
+                    <b>•<a href="#void">void</a></b><br />
+                    <b>•<a href="#wchar">wide char</a></b><br />
+                </div>
+            </p>
+            <p>
+                <div style="font-size:140%">
+                    <b>2. Derived</b> data types<br />
+                    Derived data types that are derived from the primitive or built-in datatypes.
+                </div>
+                <div style="font-size:130%; padding-left:40px">
+                    <b>•function</b><br />
+                    <b>•array</b><br />
+                    <b>•pointer</b><br />
+                    <b>•reference</b><br />
+                </div>
+            </p>
+            <p>
+                <div style="font-size:140%">
+                    <b>3. Abstract</b> or <b>User-Defined</b> data types<br />
+                    Are defined by the user itself.
+                </div>
+                <div style="font-size:130%; padding-left:40px">
+                    <b>•class</b><br />
+                    <b>•structure</b><br />
+                    <b>•union</b><br />
+                    <b>•enumeration</b><br />
+                    <b>•typedef</b><br />
+                </div>
+            </p>
+        </div>
+        <div style="margin:20px"><img src="DatatypesInC.png" alt="Data types"/></div>
+    </div>
+
+    <hr />
+    <div class="mytext">
+        <h2>Primitive Data Types</h2>
+        <p id="int" style="font-size:140%">
+            <b>Integer.</b> Storing integer data.<br />
+            Keyword: <b>int</b>, require 4 bytes of memory space and range from -2<sup>31</sup> to 2<sup>31</sup> - 1.
+        </p>
+        <p id="char" style="font-size:140%">
+            <b>Character.</b> Storing characters.<br />
+            Keyword: <b>char</b>, require 1 byte of memory space and range from -2<sup>7</sup> to 2<sup>7</sup> - 1 or 0 to 2<sup>8</sup>.
+        </p>
+        <p id="bool" style="font-size:140%">
+            <b>Boolean.</b> Storing boolean or logical values.<br />
+            Keyword: <b>bool</b>, is either <i>true</i> or <i>false</i>, range from 0 to 1 accordingly. Set to 0 by default.
+        </p>
+        <p id="float" style="font-size:140%">
+            <b>Floating point.</b> Storing single-precision floating-point values or decimal values.<br />
+            Keyword: <b>float</b>, require 4 bytes of memory space.
+        </p>
+        <p id="double" style="font-size:140%">
+            <b>Double floating point.</b> Storing double-precision floating-point values or decimal values.<br />
+            Keyword: <b>double</b>, require 8 bytes of memory space.
+        </p>
+        <p id="void" style="font-size:140%">
+            <b>Void.</b> Represents a valueless entity.<br />
+            Keyword: <b>void</b>, used for those function which does not return a value.
+        </p>
+        <p id="wchar" style="font-size:140%">
+            <b>Wide character.</b> Is also a character data but has a size greater than the normal 8-bit character data type.<br />
+            Keyword: <b>wchar_t</b>, generally 2 or 4 bytes long.
+        </p>
+    </div>
+</body>
+</html>

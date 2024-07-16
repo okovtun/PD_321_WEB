@@ -1,0 +1,27 @@
+﻿body
+{
+}
+/*Selector*/
+
+h1 {
+    text-align: center;
+    font-family: Playwrite CU, Arial
+}
+
+p {
+    font-family: Roboto;
+    text-align: justify;
+    font-size: 124%;
+}
+/*Таким образом обозначаются селекторы, созданные при помощи атрибута 'id'. Этот атрибут позволяет создать уникальное имя, применимое только к одному дескриптору.*/
+#one {
+    color: green;
+}
+
+.paragraph {
+    margin: 16px 32px;
+    border-style: solid;
+    border-width: 24px;
+    border-color: green;
+    padding: 48px;
+}

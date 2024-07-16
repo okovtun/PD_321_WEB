@@ -5,12 +5,16 @@ VisualStudioVersion = 15.0.34930.48
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{EEAD4B5B-2100-4B61-A8A0-FD10F2B78870}"
 	ProjectSection(SolutionItems) = preProject
+		ArtemDataTypes.html = ArtemDataTypes.html
+		fonts.css = fonts.css
 		HTMLPage1-LogicalFormatingDescriptors.html = HTMLPage1-LogicalFormatingDescriptors.html
 		HTMLPage2-DataTypes.html = HTMLPage2-DataTypes.html
 		HTMLPage3-Lists.html = HTMLPage3-Lists.html
 		HTMLPage4-Fonts.html = HTMLPage4-Fonts.html
 		HTMLPage5 - CSS.html = HTMLPage5 - CSS.html
+		HTMLPage5-DescriptorsRelations.html = HTMLPage5-DescriptorsRelations.html
 		index.html = index.html
+		style.css = style.css
 	EndProjectSection
 EndProject
 Global
