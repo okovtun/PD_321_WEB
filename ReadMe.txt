@@ -2,6 +2,9 @@
 https://www.youtube.com/playlist?list=PLeqyOOqxeiIOdpQWJH3tfE-pQUci7sYuj
 
 TODO:
+При помощи таблиц нарисовать кораблик:
+
+TODO:
 https://www.ixbt.com/cpu/cpu-digest-2009.shtml
 
 DONE:
