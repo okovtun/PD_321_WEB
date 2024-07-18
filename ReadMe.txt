@@ -1,6 +1,9 @@
-https://github.com/okovtun/PD_321_WEB.git
+п»їhttps://github.com/okovtun/PD_321_WEB.git
 https://www.youtube.com/playlist?list=PLeqyOOqxeiIOdpQWJH3tfE-pQUci7sYuj
 
 TODO:
-Добить симаольные и числовые типы данных:
+https://www.ixbt.com/cpu/cpu-digest-2009.shtml
+
+DONE:
+Р”РѕР±РёС‚СЊ СЃРёРјР°РѕР»СЊРЅС‹Рµ Рё С‡РёСЃР»РѕРІС‹Рµ С‚РёРїС‹ РґР°РЅРЅС‹С…:
 	https://github.com/okovtun/BV_224/blob/master/DataTypes.pdf
