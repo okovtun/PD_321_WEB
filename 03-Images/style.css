@@ -1,45 +1,71 @@
 ﻿@import url('https://fonts.googleapis.com/css2?family=Playwrite+CU:wght@100..400&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 body {
-    font-family: Roboto;
-    background-color: royalblue;
-    background-image: url(pcbTexture1.jpg);
-    /*background-image: url(https://as2.ftcdn.net/v2/jpg/00/91/89/03/1000_F_91890325_RLQlYMjkJziMQpdMFfQ2ZYPZLXmcwU9D.jpg);*/
-    background-attachment: fixed;
-    /*background-size:cover;*/
+	font-family: Roboto;
+	background-color: royalblue;
+	background-image: url(pcbTexture1.jpg);
+	/*background-image: url(https://as2.ftcdn.net/v2/jpg/00/91/89/03/1000_F_91890325_RLQlYMjkJziMQpdMFfQ2ZYPZLXmcwU9D.jpg);*/
+	background-attachment: fixed;
+	/*background-size:cover;*/
 }
 
 h1 {
-    font-family: 'Playwrite CU', Arial;
+	font-family: 'Playwrite CU', Arial;
+}
+h4 {
+	text-align:center;
 }
 
 p {
-    font-size: 18px;
-    text-align: justify;
-    background-color: rgba(0, 100, 0, .3);
+	font-size: 18px;
+	text-align: justify;
+	background-color: rgba(0, 100, 0, .3);
 }
 
 img {
-    /*float:left;*/
-    border: solid;
-    border-width: 1px;
-    /*margin:15px;*/
-    /*Выравнивание картинок по середине:*/
-    display: block;
-    margin-right: auto;
-    margin-left: auto;
-    width: 50%;
+	/*float:left;*/
+	border: solid;
+	border-width: 1px;
+	/*margin:15px;*/
+	/*Выравнивание картинок по середине:*/
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+	width: 50%;
 }
 
 table {
-    border: solid;
-    border-collapse: collapse;
+	border: solid;
+	border-collapse: collapse;
 }
 
-    table thead {
-        background-color:Highlight;
-    }
+	table thead {
+		background-color: Highlight;
+	}
 
-    table td, table th {
-        border: 1px solid black;
-    }
+	table td, table th {
+		border: 1px solid black;
+	}
+
+ul {
+	list-style:none;
+}
+
+/*Ссылка:*/
+a {
+	color:Highlight;
+}
+/*Посещенная ссылка:*/
+	a:visited {
+		color:darkblue;
+	}
+/*Наведение мыши на ссылку:*/
+	a:hover {
+		color:white;
+		background:Highlight;
+		font-size:x-large;
+	}
+/*Активная ссылка - на которую мы нажали мышь*/
+	a:active {
+		background:red;
+	}
