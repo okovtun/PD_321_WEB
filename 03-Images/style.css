@@ -12,8 +12,9 @@ body {
 h1 {
 	font-family: 'Playwrite CU', Arial;
 }
+
 h4 {
-	text-align:center;
+	text-align: center;
 }
 
 p {
@@ -37,35 +38,66 @@ img {
 table {
 	border: solid;
 	border-collapse: collapse;
+	width: 45%;
+	/*Выравнивание таблицы по центру:*/
+	margin-left: auto;
+	margin-right: auto;
+	/*Выравнивание содержимого:*/
+	text-align: center;
 }
 
 	table thead {
 		background-color: Highlight;
+		color: white;
 	}
 
 	table td, table th {
 		border: 1px solid black;
 	}
 
+.LeftHeader {
+	text-align: left;
+	padding:10px;
+}
+
+th {
+	padding:20px;
+}
+
 ul {
-	list-style:none;
+	list-style: none;
 }
 
 /*Ссылка:*/
 a {
-	color:Highlight;
+	color: Highlight;
 }
-/*Посещенная ссылка:*/
+	/*Посещенная ссылка:*/
 	a:visited {
-		color:darkblue;
+		color: darkblue;
 	}
-/*Наведение мыши на ссылку:*/
+	/*Наведение мыши на ссылку:*/
 	a:hover {
-		color:white;
-		background:Highlight;
-		font-size:x-large;
+		color: white;
+		background: Highlight;
+		font-size: x-large;
 	}
-/*Активная ссылка - на которую мы нажали мышь*/
+	/*Активная ссылка - на которую мы нажали мышь*/
 	a:active {
-		background:red;
+		background: red;
 	}
+
+#content {
+	width: 80%;
+	height: 50%;
+	border-style: solid;
+	border-width: 1px;
+	/*20px со всех сторон:*/
+	padding: 20px;
+	/*20px: top/bottom; 10px: left/right;*/
+	padding: 20px 10px;
+	/*20px: top; 30px: left/right; 40px:bottom*/
+	padding: 20px 30px 40px;
+	/*20px: top; 30px: right; 40px:bottom; 50px: left*/
+	padding: 20px 30px 40px 50px;
+}
