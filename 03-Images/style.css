@@ -80,7 +80,7 @@ a {
 	a:hover {
 		color: white;
 		background: Highlight;
-		font-size: x-large;
+		/*font-size: x-large;*/
 	}
 	/*Активная ссылка - на которую мы нажали мышь*/
 	a:active {
@@ -101,3 +101,19 @@ a {
 	/*20px: top; 30px: right; 40px:bottom; 50px: left*/
 	padding: 20px 30px 40px 50px;
 }
+
+a:visited{
+	color: red !important;
+}
+
+a:active{
+	border: 10px solid green;
+	
+}
+
+a:hover{
+	background: yellow;
+	padding: 10px;
+}
+
+
