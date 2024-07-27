@@ -1,0 +1,57 @@
+﻿/*div {
+	border:solid 1px black;
+	position:absolute;
+}*/
+.main_window {
+	border: solid 1px blue;
+	position: relative;
+	background: silver;
+	left: 400px;
+	top: 100px;
+	width: 400px;
+	height: 300px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+.title_bar {
+	position:absolute;
+	background:blue;
+	width:400px;
+	height:28px;
+	display:flex;
+	align-items:center;
+	justify-content:space-between;
+
+	/*left:1px;*/
+	border-top-left-radius: 4px;
+	border-top-right-radius:4px;
+
+	/*padding-right:3px;*/
+
+	font-family:Tahoma;
+	color:white;
+}
+.title_bar_left_side, .title_bar_right_side {
+	position:relative;
+	height:28px;
+	display:flex;
+	align-items:center;
+}
+#app_icon {
+	width:24px;
+	height:24px;
+}
+/*input[type=button] {
+	width:22px;
+	height:22px;
+}*/
+.control_button {
+	/*position:absolute;*/
+	/*top:3px;*/
+	width: 22px;
+	height: 22px;
+	margin:2px;
+}
+#close_button {
+	margin-right:3px;
+}

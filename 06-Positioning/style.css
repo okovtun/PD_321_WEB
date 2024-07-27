@@ -1,0 +1,19 @@
+﻿body
+{
+}
+.parent {
+	/*position:relative;*/
+	background:yellow;
+}
+.logo {
+	/*position:absolute;*/
+	border:solid 3px;
+	float:left;
+	left:200px;
+	top:50px;
+}
+.header {
+	position:sticky;
+	background:silver;
+	bottom:50px;
+}
