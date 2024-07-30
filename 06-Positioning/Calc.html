@@ -2,8 +2,8 @@
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="utf-8" />
-    <title>Калькулятор</title>
+	<meta charset="utf-8" />
+	<title>Калькулятор</title>
 	<link rel="stylesheet" href="calc.css">
 </head>
 <body>
@@ -29,7 +29,20 @@
 			<input type="button" value="Справка" class="menu_bar_button">
 		</div>
 		<div class="workspace">
-			<input type="text" class="edit_control">
+			<div class="edit_control"><input type="text"></div>
+			<div class="memory_buttons">
+				<input type="button" value="MC">
+				<input type="button" value="MR">
+				<input type="button" value="MS">
+				<input type="button" value="M+">
+			</div>
+			<div class="clear_buttons">
+				<div class="empty"></div>
+				<input type="button" value="Backspace">
+				<input type="button" value="CE">
+				<input type="button" value="C">
+			</div>
+			<div class="digit_buttons"></div>
 		</div>
 	</div>
 </body>
