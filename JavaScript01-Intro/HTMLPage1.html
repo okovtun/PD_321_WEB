@@ -1,0 +1,199 @@
+﻿<!DOCTYPE html>
+
+<html lang="ru" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="utf-8">
+	<title>Introduction to JavaScript</title>
+</head>
+<body>
+	<script>
+		/*var name = prompt("Введите Ваше имя: ");
+		let surname;
+		const discipline = "JavaScript";
+		document.write(typeof (discipline));
+		typeof (discipline);	//функциональная форма записи
+		typeof discipline;		//обычная форма записи
+		//alert("Hello World!");	//Выводит модеальное окно
+		if (confirm(name + ", Вы знаете HTML?"))
+		{
+			var _var = "Variable1";
+			let _let = "Variable2";
+			document.write("<h2>Тогда можно начинать <strong>JavaScript</strong></h2>");
+		}
+		else
+		{
+			document.write("<h2>Значит надо выучить</h2>");
+		}
+		document.write(_var);
+		document.write(_let);
+		_var = 123;
+		document.write(_var);*/
+
+		//var a = 2;
+		//document.writeln(a + " " + typeof (a));
+		//document.writeln("Строка 1");
+		//document.writeln('Строка 2');
+
+		/*console.log(a + " " + typeof (a));
+		console.log("Строка 1\n");
+		console.log('Строка 2');
+		let name = prompt("Введите Ваше имя: ");
+		let age = prompt("Ваш возраст:");
+		document.write(`Hello ${name}! We are glad to see you!\n${age}`);
+		document.writeln(typeof (name));
+		document.writeln(typeof (age));*/
+		//let a = +prompt("Введите первое число:");
+		//let b = +prompt("Введите второе число:");
+		//let c = Number(a) + Number(b);
+		//let c = parseInt(a) + parseInt(b);
+		//let c = a + b;
+		//document.writeln(c);
+		//document.writeln(typeof c);
+		/*let i = 3;
+		let j = ++i;
+		console.log(i + "\t" + j);*/
+	</script>
+
+	<script>
+		//let n = +prompt("Введите число:");
+		//for (let a = 0, b = 1, c = a + b; a < n; a = b, b = c, c = a + b)
+		//{
+		//	console.log(a);
+		//}
+		//----------------------
+		//document.write("<table border=1 width=500>");
+		//for (let i = 1; i <= 10; i++)
+		//{
+		//	document.write("<tr>");
+		//	for (let j = 1; j <= 10; j++)
+		//	{
+		//		document.write("<td>");
+		//		document.write(i * j);
+		//		document.write("</td>");
+		//	}
+		//	document.write("<tr>");
+		//}
+		//document.write("</table>");
+	</script>
+
+	<script>
+
+		////let arr = new Array(5);
+		////for (let i = 0; i < arr.length; i++)
+		////{
+		////	arr[i] = parseInt(Math.random()*100);
+		////	console.log(arr[i]);
+		////}
+		////console.table(arr);
+
+		//let arr = [3, 5, 8, 13, 21, 34];
+		////let arr2 = new Array(0, 1, 1, 2, 3, 5, 8, 13, 21);
+		////for (let i in arr2)
+		////	{
+		////	console.log(i);
+		////	}
+
+		//document.write(arr + "<br>");
+		//document.write("Sum:" + arr.reduce((sum, a) => sum + a, 0) + "<br>");
+		//document.write("Sum:" + arr.reduce(sum, 0) + "<br>");
+		//document.write("Avg:" + arr.reduce((sum, a) => sum + a, 0) / arr.length + "<br>");
+		//document.write("Min:" + arr.reduce((min, a) => min = a < min ? a : min) + "<br>");
+		//document.write("Max:" + arr.reduce((max, a) => max = a > max ? a : max) + "<br>");
+		//document.write("<hr>");
+
+		////arr2[9] = 34;
+		////arr2[10] = 55;
+		////arr2[11] = 89;
+		////arr2.push(144);
+		////arr2.pop();
+		////document.write(arr2+"<br>");
+		////document.write(arr2.length);
+
+		////let decimal = +prompt("Введите десятичное число: ");
+		////document.write(decimal.toString(2) + "<br>");
+		////document.write(decimal.toString(16) + "<br>");
+		////let binary = [0];
+		//////debugger
+		////for (let i = 0; decimal; decimal = parseInt(decimal / 2), i++)
+		////{
+		////	binary[i] = decimal % 2;
+		////}
+		////document.write(binary.reverse());
+
+		//let arr2 =
+		//	[
+		//		[1, 2, 3],
+		//		[4, 5, 6/*, "Hello"*/],
+		//		[7, 8, 9, 11],
+		//		//[true]
+		//	];
+
+		//document.write(arr2 + "<br>");
+		//console.table(arr2);
+
+		////print(arr2);
+		////debugger
+		////document.write("Sum:" + arr2.reduce((sum, a) => sum + a, 0).reduce((sum, a) => sum + a, 0) + "<br>");
+		////let sum1 =
+		//let arr2flat = arr2.reduce((sum, a) => sum.concat(a));
+		//let sum2 = arr2flat.reduce((sum, a) => sum + a, 0);
+		//document.write("Sum:" + sum2 + "<br>");
+		////document.write("Sum:" + arr2.reduce((sum, a)=>sum.concat(a)).reduce((sum, a) => sum + a, 0) + "<br>");
+		////document.write("Sum:" + arr2.reduce(sum, 0) + "<br>");
+		//document.write("Avg:" + sum2 / arr2flat.length + "<br>");
+		//document.write("Min:" + arr2flat.reduce((min, a) => min = a < min ? a : min) + "<br>");
+		//document.write("Max:" + arr2flat.reduce((max, a) => max = a > max ? a : max) + "<br>");
+		//document.write("<hr>");
+		////debugger;
+		//print(arr2);
+		//////////////////////////////////////////////////////
+		//function print(arr) {
+		//	debugger
+		//	document.write("<table width=500>")
+		//	for (let i = 0; i < arr.length; i++) {
+		//		document.write("<tr>")
+		//		for (let j = 0; j < arr[i].length; j++) {
+		//			document.write("<td>" + arr[i][j] + "<td>")
+		//		}
+		//		document.write("</tr>")
+		//	}
+		//	document.write("</table>")
+		//}
+		//function sum(sum, value) {
+		//	return sum + value;
+		//}
+	</script>
+
+	<script>
+		let expression = prompt("Введите арифметическое выражение: ", "22+33");
+		document.write(expression + " = ");
+		let numbers = expression.split(/[+\-*\/^]/);
+		console.log(typeof (numbers));
+		console.log(numbers);
+		//console.table(numbers);
+		let a = Number(numbers[0]);
+		let b = Number(numbers[1]);
+
+		//if (expression.indexOf('+') > 0)document.write(a + b);
+		//else if (expression.indexOf('-') > 0)document.write(a - b);
+		//else if (expression.indexOf('*') > 0)document.write(a * b);
+		//else if (expression.indexOf('/') > 0)document.write(a / b);
+		//else if (expression.indexOf('^') > 0)document.write(a ** b);
+
+		const regexp = /[+\-*\/^]/g;
+		let s = [...expression.matchAll(regexp)];
+		document.write(typeof (s));
+		console.log(s[0]);
+		console.log(s[0][0]);
+		debugger;
+		switch (s[0][0]) {
+			case '+': document.write(a + b); break;
+			case '-': document.write(a - b); break;
+			case '*': document.write(a * b); break;
+			case '/': document.write(a / b); break;
+			case '^': document.write(a ** b); break;
+		}
+		document.write(typeof (s[0][0]));
+	</script>
+</body>
+</html>
