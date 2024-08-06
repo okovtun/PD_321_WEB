@@ -1,3 +1,4 @@
+https://www.youtube.com/playlist?list=PLeqyOOqxeiIOdpQWJH3tfE-pQUci7sYuj
 
 TODO:
 1. Пользователь вводит число, и программа говорит - это палиндром, или нет;
