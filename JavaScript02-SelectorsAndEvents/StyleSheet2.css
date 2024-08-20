@@ -1,3 +1,37 @@
 ﻿body
 {
+	/*background-color:#D8D8D8;*/
 }
+
+#header
+{
+	display: flex;
+}
+
+#background_switch
+{
+	width: 24px;
+	height: 24px;
+}
+
+.light
+{
+	background: #D8D8D8;
+	color: #323232;
+}
+
+	.light #background_switch
+	{
+		content: url("img/moon.png");
+	}
+
+.dark
+{
+	background: #323232;
+	color: #D8D8D8;
+}
+
+	.dark #background_switch
+	{
+		content: url("img/sun.png");
+	}
