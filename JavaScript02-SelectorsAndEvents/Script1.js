@@ -63,7 +63,7 @@ function setBoald()
 {
 	let chkBld = document.getElementById("itemsBoald");
 	console.log(chkBld);
-	let items = document.querySelectorAll('div > ol > li');
+	let items = document.querySelectorAll('ol > li');
 	let nested_items = document.querySelectorAll('li > ul');
 	for (let i = 0; i < items.length; i++)
 	{
