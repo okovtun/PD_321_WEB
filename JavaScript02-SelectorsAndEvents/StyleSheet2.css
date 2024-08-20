@@ -1,6 +1,7 @@
 ﻿body
 {
 	/*background-color:#D8D8D8;*/
+	transition:background-color 2s, color 2s;
 }
 
 #header
