@@ -13,6 +13,8 @@
 {
 	width: 24px;
 	height: 24px;
+	background-size:24px 24px;
+	transition: background-image 2s;
 }
 
 .light
@@ -23,7 +25,7 @@
 
 	.light #background_switch
 	{
-		content: url("img/moon.png");
+		background-image: url("img/moon.png");
 	}
 
 .dark
@@ -34,5 +36,5 @@
 
 	.dark #background_switch
 	{
-		content: url("img/sun.png");
+		background-image: url("img/sun.png");
 	}
