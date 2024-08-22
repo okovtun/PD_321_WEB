@@ -25,6 +25,14 @@ background_switch.onclick = function ()
 	//	//document.body.style.color = DARK;
 	//}
 
+	let backgroundDelay = document.getElementById("bkgDelay");
+	//let backgroundSwitch = document.getElementById("background_switch");
+	console.log(backgroundDelay.style);
+	let delay = backgroundDelay.value;
+	console.log(document.body.style);
+	document.body.style.transition = `background-color ${delay / 1000}s, color ${delay / 1000}s`;
+	document.getElementById("background_switch").style.transition = `background-image ${delay / 1000}s`;
+	console.log(document.body.style);
 	document.body.className = document.body.className === "light" ? "dark" : "light";
 }
 
