@@ -38,3 +38,18 @@
 	{
 		background-image: url("img/sun.png");
 	}
+
+.timers
+{
+	border-top:solid 2px;
+	border-bottom:solid 2px;
+	margin:5px 0px 5px;
+}
+input
+{
+	font-size:32px;
+}
+#result
+{
+	font-size:32px;
+}

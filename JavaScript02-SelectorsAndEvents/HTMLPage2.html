@@ -23,11 +23,18 @@
 		<button id="btnShowHide" style="width:123px;height:58px;font-size:24px;" onclick="setImageVisibilityDelay()">Скрыть</button>
 	</div>
 	<div id="DateAndTime"></div>
-	<div id="clock">
+	<div id="clock" class="timers">
 		<input type="checkbox" id="cbShowDate">
 		<label for="cbShowDate">Показать дату</label>
 		<div id="timer_display" style="font-size:58px;text-align:center;"></div>
 		<div id="date_display" style="font-size:48px;text-align:center;"></div>
+	</div>
+	<div id="countdownTimer"  class="timers">
+		<h2>Countdown timer</h2>
+		<input type="date" id="targetDate" value="2024-08-22">
+		<input type="time" id="targetTime" value="17:45">
+		<input type="button" id="btnStart" value="Start" style="width:150px;height:48px;">
+		<div id="result"></div>
 	</div>
 	<script type="text/javascript" src="Script2.js"></script>
 </body>
