@@ -171,21 +171,36 @@ function tickCountdown()
 {
 	if (!document.getElementById("targetTime").disabled) return;
 	let now = new Date();
+	let targetDateControl = document.getElementById("targetDate");
 	let targetTimeControl = document.getElementById("targetTime");
+	let targetDate = targetDateControl.valueAsDate;
 	let targetTime = targetTimeControl.valueAsDate;
+	targetDate.setHours(targetDate.getHours() + targetDate.getTimezoneOffset() / 60);
+	document.getElementById("targetDateValue").innerHTML = targetDate.toString();
 	//targetTime.setDate(now.toDateString());
-	targetTime.setFullYear(now.getFullYear());
-	targetTime.setMonth(now.getMonth());
-	targetTime.setDate(now.getDate());
+	targetTime.setHours(targetTime.getHours() + (targetTime.getTimezoneOffset() / 60));
+	targetTime.setFullYear(targetDate.getFullYear());
+	targetTime.setMonth(targetDate.getMonth());
+	targetTime.setDate(targetDate.getDate());
 	//document.getElementById("targetTimeValue").innerHTML = typeof(targetTime);
-	targetTime.setHours(targetTime.getHours()+(targetTime.getTimezoneOffset()/60));
 	document.getElementById("targetTimeValue").innerHTML = targetTime;
 	let duration = targetTime;
 	document.getElementById("result").innerHTML = duration + "<br>" + now;
 	let timestamp = targetTime - now;
+	console.log(timestamp);
 	let time_offset = new Date(timestamp);
-	time_offset.setHours(time_offset.getHours() + time_offset.getTimezoneOffset()/60);
-	document.getElementById("result").innerHTML = time_offset.toTimeString();
+	//time_offset.setFullYear(targetTime.getFullYear() - now.getFullYear());
+	//time_offset.setMonth(targetTime.getMonth() - now.getMonth());
+	//time_offset.setDate(targetTime.getDate() - now.getDate());
+
+	time_offset.setHours(time_offset.getHours() + time_offset.getTimezoneOffset() / 60);
+	let time_left = "";
+	if (time_offset.getFullYear() > 0) time_left += `${time_offset.getFullYear()} лет,`;
+	if (time_offset.getMonth() > 0) time_left += `${checkNumber(time_offset.getMonth())} месяцев,`;
+	if (time_offset.getDate() > 0) time_left += `${checkNumber(time_offset.getDate())} дней,`;
+	time_left += `${checkNumber(time_offset.getHours())}:${checkNumber(time_offset.getMinutes())}:${checkNumber(time_offset.getSeconds())};`;
+	document.getElementById("result").innerHTML = time_left;
+	//document.getElementById("result").innerHTML = time_offset.toTimeString();
 	if (duration > 0) setTimeout(tickCountdown, 1000);
 }
 
