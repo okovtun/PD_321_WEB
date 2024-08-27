@@ -178,12 +178,14 @@ function tickCountdown()
 	targetTime.setMonth(now.getMonth());
 	targetTime.setDate(now.getDate());
 	//document.getElementById("targetTimeValue").innerHTML = typeof(targetTime);
-	targetTime.setHours(targetTime.getUTCHours());
+	targetTime.setHours(targetTime.getHours()+(targetTime.getTimezoneOffset()/60));
 	document.getElementById("targetTimeValue").innerHTML = targetTime;
 	let duration = targetTime;
 	document.getElementById("result").innerHTML = duration + "<br>" + now;
 	let timestamp = targetTime - now;
-	document.getElementById("result").innerHTML = new Date(timestamp).toTimeString();
+	let time_offset = new Date(timestamp);
+	time_offset.setHours(time_offset.getHours() + time_offset.getTimezoneOffset()/60);
+	document.getElementById("result").innerHTML = time_offset.toTimeString();
 	if (duration > 0) setTimeout(tickCountdown, 1000);
 }
 
