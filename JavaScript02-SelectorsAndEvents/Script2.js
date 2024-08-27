@@ -177,6 +177,9 @@ function tickCountdown()
 	targetTime.setFullYear(now.getFullYear());
 	targetTime.setMonth(now.getMonth());
 	targetTime.setDate(now.getDate());
+	//document.getElementById("targetTimeValue").innerHTML = typeof(targetTime);
+	targetTime.setHours(targetTime.getUTCHours());
+	document.getElementById("targetTimeValue").innerHTML = targetTime;
 	let duration = targetTime;
 	document.getElementById("result").innerHTML = duration + "<br>" + now;
 	let timestamp = targetTime - now;
