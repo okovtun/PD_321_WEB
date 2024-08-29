@@ -188,10 +188,10 @@ function tickCountdown()
 	document.getElementById("result").innerHTML = duration + "<br>" + now;
 	let timestamp = targetTime - now;
 	console.log(timestamp);
-	let time_offset = new Date(timestamp);
-	//time_offset.setFullYear(targetTime.getFullYear() - now.getFullYear());
-	//time_offset.setMonth(targetTime.getMonth() - now.getMonth());
-	//time_offset.setDate(targetTime.getDate() - now.getDate());
+	/*let time_offset = new Date(timestamp);
+	time_offset.setFullYear(targetTime.getFullYear() - now.getFullYear());
+	time_offset.setMonth(targetTime.getMonth() - now.getMonth());
+	time_offset.setDate(targetTime.getDate() - now.getDate());
 
 	time_offset.setHours(time_offset.getHours() + time_offset.getTimezoneOffset() / 60);
 	let time_left = "";
@@ -199,8 +199,32 @@ function tickCountdown()
 	if (time_offset.getMonth() > 0) time_left += `${checkNumber(time_offset.getMonth())} месяцев,`;
 	if (time_offset.getDate() > 0) time_left += `${checkNumber(time_offset.getDate())} дней,`;
 	time_left += `${checkNumber(time_offset.getHours())}:${checkNumber(time_offset.getMinutes())}:${checkNumber(time_offset.getSeconds())};`;
-	document.getElementById("result").innerHTML = time_left;
+	document.getElementById("result").innerHTML = time_left;*/
 	//document.getElementById("result").innerHTML = time_offset.toTimeString();
+
+
+	timestamp = Math.trunc(timestamp / 1000);
+	timestamp *= 1000;
+
+	const SECONDS_IN_DAY = 86400;
+	const SECONDS_IN_HOUR = 3600;
+	const SECONDS_IN_MINUTE = 60;
+
+	let timestamp_in_seconds = Math.floor(timestamp/1000);
+	let days = Math.floor(timestamp_in_seconds / SECONDS_IN_DAY);
+	let days_in_seconds = days * SECONDS_IN_DAY;
+	if(days>0)timestamp_in_seconds = (timestamp_in_seconds % (days * SECONDS_IN_DAY));
+	//console.log(timestamp_in_seconds % days_in_seconds);
+	let hours = Math.floor(timestamp_in_seconds / 3600);
+	if(hours>0)timestamp_in_seconds = (timestamp_in_seconds % (hours * 3600));
+	let minutes = Math.floor(timestamp_in_seconds / 60);
+	if(minutes>0)timestamp_in_seconds = (timestamp_in_seconds % (minutes * 60));
+	let seconds = Math.floor(timestamp_in_seconds);
+
+	document.getElementById("result").innerHTML = `Days: ${days} Hours: ${checkNumber(hours)} Minutes:${checkNumber(minutes)} Seconds:${checkNumber(seconds)}`;
+
+	//document.getElementById("result").innerHTML = timestamp;
+
 	if (duration > 0) setTimeout(tickCountdown, 1000);
 }
 
