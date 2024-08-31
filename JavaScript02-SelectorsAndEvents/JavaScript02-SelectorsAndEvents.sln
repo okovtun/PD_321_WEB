@@ -7,8 +7,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		HTMLPage1.html = HTMLPage1.html
 		HTMLPage2.html = HTMLPage2.html
+		HTMLPage3-DOM.html = HTMLPage3-DOM.html
 		Script1.js = Script1.js
 		Script2.js = Script2.js
+		Script3.js = Script3.js
 		StyleSheet2.css = StyleSheet2.css
 	EndProjectSection
 EndProject
