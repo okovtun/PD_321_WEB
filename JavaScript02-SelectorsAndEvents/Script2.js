@@ -206,23 +206,38 @@ function tickCountdown()
 	timestamp = Math.trunc(timestamp / 1000);
 	timestamp *= 1000;
 
+	const DAYS_IN_MONTH = 365 / 12;
+	const SECONDS_IN_MONTH = 86400 * DAYS_IN_MONTH;
+	const SECONDS_IN_WEEK = 86400 * 7;
 	const SECONDS_IN_DAY = 86400;
 	const SECONDS_IN_HOUR = 3600;
 	const SECONDS_IN_MINUTE = 60;
 
-	let timestamp_in_seconds = Math.floor(timestamp/1000);
+	//const SECONDS_IN_YEAR = 31557600;//SECO
+	const SECONDS_IN_YEAR = SECONDS_IN_DAY * 365 + SECONDS_IN_HOUR * 6;
+	console.log(SECONDS_IN_YEAR);
+
+	let timestamp_in_seconds = Math.floor(timestamp / 1000);
+
+	let years = Math.floor(timestamp_in_seconds / SECONDS_IN_YEAR);
+	if (years > 0) timestamp_in_seconds = (timestamp_in_seconds % (years * SECONDS_IN_YEAR));
+	let month = Math.floor(timestamp_in_seconds / SECONDS_IN_MONTH);
+	if (month > 0) timestamp_in_seconds = (timestamp_in_seconds % (month * SECONDS_IN_MONTH));
+	let weeks = Math.floor(timestamp_in_seconds / SECONDS_IN_WEEK);
+	if (weeks > 0) timestamp_in_seconds = (timestamp_in_seconds % (weeks * SECONDS_IN_WEEK));
 	let days = Math.floor(timestamp_in_seconds / SECONDS_IN_DAY);
 	let days_in_seconds = days * SECONDS_IN_DAY;
 	if(days>0)timestamp_in_seconds = (timestamp_in_seconds % (days * SECONDS_IN_DAY));
 	//console.log(timestamp_in_seconds % days_in_seconds);
 	let hours = Math.floor(timestamp_in_seconds / 3600);
-	if(hours>0)timestamp_in_seconds = (timestamp_in_seconds % (hours * 3600));
-	let minutes = Math.floor(timestamp_in_seconds / 60);
+	if(hours>0)timestamp_in_seconds = (timestamp_in_seconds % (hours * SECONDS_IN_HOUR));
+	let minutes = Math.floor(timestamp_in_seconds / SECONDS_IN_MINUTE);
 	if(minutes>0)timestamp_in_seconds = (timestamp_in_seconds % (minutes * 60));
 	let seconds = Math.floor(timestamp_in_seconds);
 
-	document.getElementById("result").innerHTML = `Days: ${days} Hours: ${checkNumber(hours)} Minutes:${checkNumber(minutes)} Seconds:${checkNumber(seconds)}`;
-
+	//https://planetcalc.com/7741/
+	document.getElementById("result").innerHTML = `${years} Years, ${month} Month, ${weeks} Weeks, ${days} Days, ${checkNumber(hours)} Hours, ${checkNumber(minutes)} Minutes, ${checkNumber(seconds)} Seconds;`;
+	//document.getElementById("result").innerHTML = `Days: ${days} Hours: ${checkNumber(hours)} Minutes:${checkNumber(minutes)} Seconds:${checkNumber(seconds)}`;
 	//document.getElementById("result").innerHTML = timestamp;
 
 	if (duration > 0) setTimeout(tickCountdown, 1000);
