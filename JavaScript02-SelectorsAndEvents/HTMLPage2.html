@@ -2,14 +2,14 @@
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="utf-8" />
-    <title>Events day 2</title>
+	<meta charset="utf-8" />
+	<title>Events day 2</title>
 	<link rel="stylesheet" href="StyleSheet2.css">
 </head>
 <body class="light">
 	<div id="header">
 		<div style="width:88%">Header</div>
-		<div ><input type="number" min="500" max="8000" step="500" value="500" style="text-align:right" id="bkgDelay"></div>
+		<div><input type="number" min="500" max="8000" step="500" value="500" style="text-align:right" id="bkgDelay"></div>
 		<div id="background_switch"></div>
 		<!--<img src="img/moon.png" alt="Switch background image" id="background_switch">-->
 	</div>
@@ -29,7 +29,7 @@
 		<div id="timer_display" style="font-size:58px;text-align:center;"></div>
 		<div id="date_display" style="font-size:48px;text-align:center;"></div>
 	</div>
-	<div id="countdownTimer"  class="timers">
+	<div id="countdownTimer" class="timers">
 		<h2>Countdown timer</h2>
 		<input type="date" id="targetDate" value="2024-09-11">
 		<input type="time" id="targetTime" value="16:20">
@@ -37,7 +37,21 @@
 		<div id="targetDateValue"></div>
 		<div id="targetTimeValue"></div>
 		<div id="timestampOffset"></div>
-		<div id="result""></div>
+		<div id="result"></div>
+		<div id="display">
+			<div>
+				<div id="hours" class="time_unit"></div>
+				<div id="hours_marker" class="time_marker">Hours</div>
+			</div>
+			<div>
+				<div id="minutes" class="time_unit"></div>
+				<div id="minutes_marker" class="time_marker">Minutes</div>
+			</div>
+			<div>
+				<div id="seconds" class="time_unit"></div>
+				<div id="seconds_marker" class="time_marker">Seconds</div>
+			</div>
+		</div>
 		<!--<div id="result" style="text-align:center;"></div>-->
 	</div>
 	<div id="TimestampResearching">

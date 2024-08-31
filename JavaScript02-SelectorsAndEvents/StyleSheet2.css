@@ -53,3 +53,28 @@ input
 {
 	font-size:32px;
 }
+#display
+{
+	/*width:256px;*/
+	font-size:32px;
+	display:flex;
+	justify-content:space-around;
+}
+.time_unit
+{
+	width: 148px;
+	height: 148px;
+	background-color: Highlight;
+	/*text-align:center;*/
+	display: flex;
+	justify-content: center;/*выравнивание по горизонтали*/
+	align-items: center;	/*выравнивание по вертикали*/
+}
+.time_marker
+{
+	background-color:red;
+	color:aliceblue;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+}

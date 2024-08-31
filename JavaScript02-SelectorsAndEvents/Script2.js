@@ -240,6 +240,10 @@ function tickCountdown()
 	//document.getElementById("result").innerHTML = `Days: ${days} Hours: ${checkNumber(hours)} Minutes:${checkNumber(minutes)} Seconds:${checkNumber(seconds)}`;
 	//document.getElementById("result").innerHTML = timestamp;
 
+	document.getElementById("hours").innerHTML = checkNumber(hours);
+	document.getElementById("minutes").innerHTML = checkNumber(minutes);
+	document.getElementById("seconds").innerHTML = checkNumber(seconds);
+
 	if (duration > 0) setTimeout(tickCountdown, 1000);
 }
 
