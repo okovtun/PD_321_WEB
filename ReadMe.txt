@@ -1,6 +1,9 @@
 https://www.youtube.com/playlist?list=PLeqyOOqxeiIOdpQWJH3tfE-pQUci7sYuj
 
 TODO:
+Применить DOM к таймеру, а именно, единицы времени должны появляться и изчезать при необходимости.
+
+DONE:
 1. Решить проблему с часовым поясом;	DONE
 2. Добавить дату;						DONE
 3. Решить проблему с датой;
