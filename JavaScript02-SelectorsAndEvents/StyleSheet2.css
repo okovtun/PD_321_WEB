@@ -55,26 +55,44 @@ input
 }
 #display
 {
+	margin:10px;
 	/*width:256px;*/
 	font-size:32px;
 	display:flex;
 	justify-content:space-around;
 }
+.time_block
+{
+	border:solid, 5px;
+	border-radius:10px;
+	z-index:100;
+}
 .time_unit
 {
 	width: 148px;
 	height: 148px;
+	color: aliceblue;
 	background-color: Highlight;
+	border-top-left-radius:4px;
+	border-top-right-radius:4px;
+	border:solid, 2px;
+	/*margin-bottom:5px;*/
 	/*text-align:center;*/
+	z-index:-100;
 	display: flex;
 	justify-content: center;/*выравнивание по горизонтали*/
 	align-items: center;	/*выравнивание по вертикали*/
 }
 .time_marker
 {
-	background-color:red;
-	color:aliceblue;
-	display:flex;
-	justify-content:center;
-	align-items:center;
+	background-color: darkred;
+	border: solid, 2px;
+	color: aliceblue;
+	/*flood-color:aliceblue;*/
+	border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 4px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: -100;
 }
