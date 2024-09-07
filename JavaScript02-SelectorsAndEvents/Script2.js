@@ -258,7 +258,52 @@ function tickCountdown()
 	}
 
 	let month = Math.floor(timestamp_in_seconds / SECONDS_IN_MONTH);
-	if (month > 0) timestamp_in_seconds = (timestamp_in_seconds % (month * SECONDS_IN_MONTH));
+	if (month > 0)
+	{
+		let display = document.getElementById("display");
+		timestamp_in_seconds = (timestamp_in_seconds % (month * SECONDS_IN_MONTH));
+		let month_unit = document.getElementById("month_unit");
+		if (month_unit == null)
+		{
+			month_unit = document.createElement("div");
+			month_unit.id = "month_unit";
+			month_unit.className = "time_unit";
+
+			let month_marker = document.createElement("div");
+			month_marker.id = "month_marker";
+			month_marker.className = "time_marker";
+			month_marker.innerHTML = "Month";
+
+			let month_block = document.createElement("div");
+			month_block.className = "time_block";
+
+			month_block.prepend(month_unit);
+			month_block.append(month_marker);
+
+			let years_unit = document.getElementById("years_unit");
+			if (years_unit != null)
+			{
+				let years_block = years_unit.parentElement;
+				years_block.after(month_block);
+			}
+			else
+			{
+				let display = document.getElementById("display");
+				display.prepend(month_block);
+			}
+		}
+		document.getElementById("month_unit").innerHTML = month;
+	}
+	else
+	{
+		let month_unit = document.getElementById("month_unit");
+		if (month_unit != null)
+		{
+			let month_block = month_unit.parentElement;
+			let display = month_block.parentElement;
+			display.removeChild(month_block);
+		}
+	}
 
 	let weeks = Math.floor(timestamp_in_seconds / SECONDS_IN_WEEK);
 	if (weeks > 0) timestamp_in_seconds = (timestamp_in_seconds % (weeks * SECONDS_IN_WEEK));
@@ -281,9 +326,9 @@ function tickCountdown()
 	//document.getElementById("result").innerHTML = `Days: ${days} Hours: ${checkNumber(hours)} Minutes:${checkNumber(minutes)} Seconds:${checkNumber(seconds)}`;
 	//document.getElementById("result").innerHTML = timestamp;
 
-	document.getElementById("hours").innerHTML = checkNumber(hours);
-	document.getElementById("minutes").innerHTML = checkNumber(minutes);
-	document.getElementById("seconds").innerHTML = checkNumber(seconds);
+	document.getElementById("hours_unit").innerHTML = checkNumber(hours);
+	document.getElementById("minutes_unit").innerHTML = checkNumber(minutes);
+	document.getElementById("seconds_unit").innerHTML = checkNumber(seconds);
 
 	if (duration > 0) setTimeout(tickCountdown, 1000);
 }
