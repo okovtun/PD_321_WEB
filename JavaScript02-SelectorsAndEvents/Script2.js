@@ -247,13 +247,13 @@ function tickCountdown()
 	}
 	else
 	{
-		let years = document.getElementById("years");
-		if (years != null)
+		let years_unit = document.getElementById("years_unit");
+		if (years_unit != null)
 		{
-			let years_time_block = years.parentElement();
+			let years_time_block = years_unit.parentElement;
 			//document.removeChild(years_time_block);
-			let years_parent = years_time_block.parentElement();
-			years_time_block.firstChild.remove();
+			let years_parent = years_time_block.parentElement;
+			years_parent.firstChild.remove();
 		}
 	}
 
