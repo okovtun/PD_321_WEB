@@ -306,7 +306,48 @@ function tickCountdown()
 	}
 
 	let weeks = Math.floor(timestamp_in_seconds / SECONDS_IN_WEEK);
-	if (weeks > 0) timestamp_in_seconds = (timestamp_in_seconds % (weeks * SECONDS_IN_WEEK));
+	if (weeks > 0)
+	{
+		timestamp_in_seconds = (timestamp_in_seconds % (weeks * SECONDS_IN_WEEK));
+		let display = document.getElementById("display");
+		let week_unit = document.getElementById("week_unit");
+		if (week_unit == null)
+		{
+			week_unit = document.createElement("div");
+			week_unit.id = "week_unit";
+			week_unit.className = "time_unit";
+
+			let week_marker = document.createElement("div");
+			week_marker.id = "week_marker";
+			week_marker.className = "time_marker";
+			week_marker.innerHTML = "Weeks";
+
+			let week_block = document.createElement("div");
+			week_block.className = "time_block";
+
+			week_block.prepend(week_unit);
+			week_block.append(week_marker);
+
+			let month_unit = document.getElementById("month_unit");
+			let year_unit = document.getElementById("years_unit");
+
+			if (month_unit != null)
+				month_unit.parentElement.after(week_block);
+			else if (year_unit != null)
+				year_unit.parentElement.after(week_block);
+			else
+				display.prepend(week_block);
+		}
+		week_unit.innerHTML = weeks;
+	}
+	else
+	{
+		let week_unit = document.getElementById("week_unit");
+		if (week_unit != null)
+		{
+			display.removeChild(week_unit.parentElement);
+		}
+	}
 
 	let days = Math.floor(timestamp_in_seconds / SECONDS_IN_DAY);
 	let days_in_seconds = days * SECONDS_IN_DAY;
