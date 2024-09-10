@@ -345,6 +345,7 @@ function createTimeBlock(name, value)
 	marker.id = `${name}_marker`;
 	marker.className = "time_marker";
 	marker.innerHTML = name.charAt(0).toUpperCase() + name.slice(1);
+	//https://stackoverflow.com/questions/1026069/how-do-i-make-the-first-letter-of-a-string-uppercase-in-javascript
 
 	time_block.prepend(unit);
 	time_block.append(marker);
