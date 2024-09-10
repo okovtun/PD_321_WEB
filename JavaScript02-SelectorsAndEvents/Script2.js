@@ -167,6 +167,8 @@ document.getElementById("btnStart").onclick =
 		//element.append(p_time);
 	}
 
+	////////////////////////////////////////////////////////////////////
+
 function tickCountdown()
 {
 	if (!document.getElementById("targetTime").disabled) return;
@@ -225,36 +227,37 @@ function tickCountdown()
 		timestamp_in_seconds = (timestamp_in_seconds % (years * SECONDS_IN_YEAR));
 		if (document.getElementById("years_unit") == null)
 		{
-			let time_block = document.createElement("div");
-			time_block.className = "time_block";
+			//let time_block = document.createElement("div");
+			//time_block.className = "time_block";
 
-			let years_unit = document.createElement("div");
-			years_unit.id = "years_unit";
-			years_unit.className = "time_unit";
-			years_unit.innerHTML = years;
+			//let years_unit = document.createElement("div");
+			//years_unit.id = "years_unit";
+			//years_unit.className = "time_unit";
+			//years_unit.innerHTML = years;
 
-			let years_marker = document.createElement("div");
-			years_marker.id = "years_marker";
-			years_marker.className = "time_marker";
-			years_marker.innerHTML = "Years";
+			//let years_marker = document.createElement("div");
+			//years_marker.id = "years_marker";
+			//years_marker.className = "time_marker";
+			//years_marker.innerHTML = "Years";
 
-			time_block.prepend(years_unit);
-			time_block.append(years_marker);
+			//time_block.prepend(years_unit);
+			//time_block.append(years_marker);
 
 			let display = document.getElementById("display");
-			display.prepend(time_block);
+			display.prepend(createTimeBlock("years", years));
 		}
 	}
 	else
 	{
-		let years_unit = document.getElementById("years_unit");
-		if (years_unit != null)
-		{
-			let years_time_block = years_unit.parentElement;
-			//document.removeChild(years_time_block);
-			let years_parent = years_time_block.parentElement;
-			years_parent.firstChild.remove();
-		}
+		//let years_unit = document.getElementById("years_unit");
+		//if (years_unit != null)
+		//{
+		//	let years_time_block = years_unit.parentElement;
+		//	//document.removeChild(years_time_block);
+		//	let years_parent = years_time_block.parentElement;
+		//	years_parent.firstChild.remove();
+		//}
+		removeTimeBlock("years");
 	}
 
 	let month = Math.floor(timestamp_in_seconds / SECONDS_IN_MONTH);
@@ -265,20 +268,22 @@ function tickCountdown()
 		let month_unit = document.getElementById("month_unit");
 		if (month_unit == null)
 		{
-			month_unit = document.createElement("div");
-			month_unit.id = "month_unit";
-			month_unit.className = "time_unit";
+			//month_unit = document.createElement("div");
+			//month_unit.id = "month_unit";
+			//month_unit.className = "time_unit";
 
-			let month_marker = document.createElement("div");
-			month_marker.id = "month_marker";
-			month_marker.className = "time_marker";
-			month_marker.innerHTML = "Month";
+			//let month_marker = document.createElement("div");
+			//month_marker.id = "month_marker";
+			//month_marker.className = "time_marker";
+			//month_marker.innerHTML = "Month";
 
-			let month_block = document.createElement("div");
-			month_block.className = "time_block";
+			//let month_block = document.createElement("div");
+			//month_block.className = "time_block";
 
-			month_block.prepend(month_unit);
-			month_block.append(month_marker);
+			//month_block.prepend(month_unit);
+			//month_block.append(month_marker);
+
+			month_unit = createTimeBlock("month", month);
 
 			let years_unit = document.getElementById("years_unit");
 			if (years_unit != null)
@@ -296,13 +301,14 @@ function tickCountdown()
 	}
 	else
 	{
-		let month_unit = document.getElementById("month_unit");
-		if (month_unit != null)
-		{
-			let month_block = month_unit.parentElement;
-			let display = month_block.parentElement;
-			display.removeChild(month_block);
-		}
+		//let month_unit = document.getElementById("month_unit");
+		//if (month_unit != null)
+		//{
+		//	let month_block = month_unit.parentElement;
+		//	let display = month_block.parentElement;
+		//	display.removeChild(month_block);
+		//}
+		removeTimeBlock("month");
 	}
 
 	let weeks = Math.floor(timestamp_in_seconds / SECONDS_IN_WEEK);
@@ -310,23 +316,24 @@ function tickCountdown()
 	{
 		timestamp_in_seconds = (timestamp_in_seconds % (weeks * SECONDS_IN_WEEK));
 		let display = document.getElementById("display");
-		let week_unit = document.getElementById("week_unit");
+		let week_unit = document.getElementById("weeks_unit");
 		if (week_unit == null)
 		{
-			week_unit = document.createElement("div");
-			week_unit.id = "week_unit";
-			week_unit.className = "time_unit";
+			//week_unit = document.createElement("div");
+			//week_unit.id = "week_unit";
+			//week_unit.className = "time_unit";
 
-			let week_marker = document.createElement("div");
-			week_marker.id = "week_marker";
-			week_marker.className = "time_marker";
-			week_marker.innerHTML = "Weeks";
+			//let week_marker = document.createElement("div");
+			//week_marker.id = "week_marker";
+			//week_marker.className = "time_marker";
+			//week_marker.innerHTML = "Weeks";
 
-			let week_block = document.createElement("div");
-			week_block.className = "time_block";
+			//let week_block = document.createElement("div");
+			//week_block.className = "time_block";
 
-			week_block.prepend(week_unit);
-			week_block.append(week_marker);
+			//week_block.prepend(week_unit);
+			//week_block.append(week_marker);
+			let week_block = createTimeBlock("weeks", weeks);
 
 			let month_unit = document.getElementById("month_unit");
 			let year_unit = document.getElementById("years_unit");
@@ -338,15 +345,16 @@ function tickCountdown()
 			else
 				display.prepend(week_block);
 		}
-		week_unit.innerHTML = weeks;
+		else week_unit.innerHTML = checkNumber(weeks);
 	}
 	else
 	{
-		let week_unit = document.getElementById("week_unit");
-		if (week_unit != null)
-		{
-			display.removeChild(week_unit.parentElement);
-		}
+		//let week_unit = document.getElementById("weeks_unit");
+		//if (week_unit != null)
+		//{
+		//	display.removeChild(week_unit.parentElement);
+		//}
+		removeTimeBlock("weeks");
 	}
 
 	let days = Math.floor(timestamp_in_seconds / SECONDS_IN_DAY);
@@ -375,3 +383,37 @@ function tickCountdown()
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////
+
+function createTimeBlock(name, value)
+{
+	let time_block = document.createElement("div");
+	time_block.className = "time_block";
+
+	let unit = document.createElement("div");
+	unit.id = `${name}_unit`;
+	unit.className = "time_unit";
+	unit.innerHTML = checkNumber(value);
+
+	let marker = document.createElement("div");
+	marker.id = `${name}_marker`;
+	marker.className = "time_marker";
+	marker.innerHTML = name;
+
+	time_block.prepend(unit);
+	time_block.append(marker);
+
+	//let display = document.getElementById("display");
+	//display.prepend(time_block);
+
+	return time_block;
+}
+function removeTimeBlock(name)
+{
+	let unit = document.getElementById(`${name}_unit`);
+	if (unit != null) {
+		let block = unit.parentElement;
+		//document.removeChild(years_time_block);
+		let block_parent = block.parentElement;
+		block_parent.firstChild.remove();
+	}
+}
