@@ -65,12 +65,11 @@ input
 }
 .time_block
 {
-	border:solid, 3px;
+	border: solid 3px;
 	border-radius:10px;
 	display:block;
 }
-.time_unit
-{
+.time_unit {
 	width: 148px;
 	height: 148px;
 	background-color: Highlight;
@@ -78,15 +77,16 @@ input
 	border-top-right-radius:5px;*/
 	/*text-align:center;*/
 	display: flex;
-	justify-content: center;/*выравнивание по горизонтали*/
-	align-items: center;	/*выравнивание по вертикали*/
+	justify-content: center; /*выравнивание по горизонтали*/
+	align-items: center; /*выравнивание по вертикали*/
+	border-radius: 7px 7px 0 0;
 }
-.time_marker
-{
-	border:solid, 1px;
-	background-color:darkred;
-	color:aliceblue;
-	display:flex;
-	justify-content:center;
-	align-items:center;
+.time_marker {
+	border: solid, 1px;
+	background-color: darkred;
+	color: aliceblue;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 0 0 7px 7px;
 }

@@ -220,6 +220,8 @@ function tickCountdown()
 	console.log(SECONDS_IN_YEAR);
 
 	let timestamp_in_seconds = Math.floor(timestamp / 1000);
+	let time_of_day = timestamp_in_seconds % SECONDS_IN_DAY;
+	timestamp_in_seconds = Math.floor(timestamp_in_seconds/SECONDS_IN_DAY) * SECONDS_IN_DAY
 
 	let years = Math.floor(timestamp_in_seconds / SECONDS_IN_YEAR);
 	if (years > 0)
@@ -309,13 +311,24 @@ function tickCountdown()
 		removeTimeBlock("days");
 	//console.log(timestamp_in_seconds % days_in_seconds);
 
-	let hours = Math.floor(timestamp_in_seconds / 3600);
-	if (hours > 0) timestamp_in_seconds = (timestamp_in_seconds % (hours * SECONDS_IN_HOUR));
+	/////////////////////////////////////////////////////////////
+	//let hours = Math.floor(timestamp_in_seconds / 3600);
+	//if (hours > 0) timestamp_in_seconds = (timestamp_in_seconds % (hours * SECONDS_IN_HOUR));
 
-	let minutes = Math.floor(timestamp_in_seconds / SECONDS_IN_MINUTE);
-	if (minutes > 0) timestamp_in_seconds = (timestamp_in_seconds % (minutes * 60));
+	//let minutes = Math.floor(timestamp_in_seconds / SECONDS_IN_MINUTE);
+	//if (minutes > 0) timestamp_in_seconds = (timestamp_in_seconds % (minutes * 60));
 
-	let seconds = Math.floor(timestamp_in_seconds);
+	//let seconds = Math.floor(timestamp_in_seconds);
+
+	/////////////////////////////////////////////////////////////
+	let hours = Math.floor(time_of_day / 3600);
+	if (hours > 0) time_of_day = (time_of_day % (hours * SECONDS_IN_HOUR));
+
+	let minutes = Math.floor(time_of_day / SECONDS_IN_MINUTE);
+	if (minutes > 0) time_of_day = (time_of_day % (minutes * 60));
+
+	let seconds = Math.floor(time_of_day);
+	/////////////////////////////////////////////////////////////
 
 	//https://planetcalc.com/7741/
 	document.getElementById("result").innerHTML = `${years} Years, ${month} Month, ${weeks} Weeks, ${days} Days, ${checkNumber(hours)} Hours, ${checkNumber(minutes)} Minutes, ${checkNumber(seconds)} Seconds;`;
