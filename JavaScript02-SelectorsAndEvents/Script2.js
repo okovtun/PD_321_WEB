@@ -227,36 +227,12 @@ function tickCountdown()
 		timestamp_in_seconds = (timestamp_in_seconds % (years * SECONDS_IN_YEAR));
 		if (document.getElementById("years_unit") == null)
 		{
-			//let time_block = document.createElement("div");
-			//time_block.className = "time_block";
-
-			//let years_unit = document.createElement("div");
-			//years_unit.id = "years_unit";
-			//years_unit.className = "time_unit";
-			//years_unit.innerHTML = years;
-
-			//let years_marker = document.createElement("div");
-			//years_marker.id = "years_marker";
-			//years_marker.className = "time_marker";
-			//years_marker.innerHTML = "Years";
-
-			//time_block.prepend(years_unit);
-			//time_block.append(years_marker);
-
 			let display = document.getElementById("display");
 			display.prepend(createTimeBlock("years", years));
 		}
 	}
 	else
 	{
-		//let years_unit = document.getElementById("years_unit");
-		//if (years_unit != null)
-		//{
-		//	let years_time_block = years_unit.parentElement;
-		//	//document.removeChild(years_time_block);
-		//	let years_parent = years_time_block.parentElement;
-		//	years_parent.firstChild.remove();
-		//}
 		removeTimeBlock("years");
 	}
 
@@ -268,22 +244,7 @@ function tickCountdown()
 		let month_unit = document.getElementById("month_unit");
 		if (month_unit == null)
 		{
-			//month_unit = document.createElement("div");
-			//month_unit.id = "month_unit";
-			//month_unit.className = "time_unit";
-
-			//let month_marker = document.createElement("div");
-			//month_marker.id = "month_marker";
-			//month_marker.className = "time_marker";
-			//month_marker.innerHTML = "Month";
-
-			//let month_block = document.createElement("div");
-			//month_block.className = "time_block";
-
-			//month_block.prepend(month_unit);
-			//month_block.append(month_marker);
-
-			month_unit = createTimeBlock("month", month);
+			month_block = createTimeBlock("month", month);
 
 			let years_unit = document.getElementById("years_unit");
 			if (years_unit != null)
@@ -297,17 +258,10 @@ function tickCountdown()
 				display.prepend(month_block);
 			}
 		}
-		document.getElementById("month_unit").innerHTML = month;
+		document.getElementById("month_unit").innerHTML = checkNumber(month);
 	}
 	else
 	{
-		//let month_unit = document.getElementById("month_unit");
-		//if (month_unit != null)
-		//{
-		//	let month_block = month_unit.parentElement;
-		//	let display = month_block.parentElement;
-		//	display.removeChild(month_block);
-		//}
 		removeTimeBlock("month");
 	}
 
@@ -319,20 +273,6 @@ function tickCountdown()
 		let week_unit = document.getElementById("weeks_unit");
 		if (week_unit == null)
 		{
-			//week_unit = document.createElement("div");
-			//week_unit.id = "week_unit";
-			//week_unit.className = "time_unit";
-
-			//let week_marker = document.createElement("div");
-			//week_marker.id = "week_marker";
-			//week_marker.className = "time_marker";
-			//week_marker.innerHTML = "Weeks";
-
-			//let week_block = document.createElement("div");
-			//week_block.className = "time_block";
-
-			//week_block.prepend(week_unit);
-			//week_block.append(week_marker);
 			let week_block = createTimeBlock("weeks", weeks);
 
 			let month_unit = document.getElementById("month_unit");
@@ -349,17 +289,24 @@ function tickCountdown()
 	}
 	else
 	{
-		//let week_unit = document.getElementById("weeks_unit");
-		//if (week_unit != null)
-		//{
-		//	display.removeChild(week_unit.parentElement);
-		//}
 		removeTimeBlock("weeks");
 	}
 
 	let days = Math.floor(timestamp_in_seconds / SECONDS_IN_DAY);
 	let days_in_seconds = days * SECONDS_IN_DAY;
-	if (days > 0) timestamp_in_seconds = (timestamp_in_seconds % (days * SECONDS_IN_DAY));
+	if (days > 0) {
+		timestamp_in_seconds = (timestamp_in_seconds % (days * SECONDS_IN_DAY));
+		let days_unit = document.getElementById("days_unit");
+		if (days_unit == null) {
+			let days_block = createTimeBlock("days", days);
+			let hours_unit = document.getElementById("hours_unit");
+			let hours_block = hours_unit.parentElement;
+			hours_block.before(days_block);
+		}
+		else days_unit.innerHTML = checkNumber(days);
+	}
+	else
+		removeTimeBlock("days");
 	//console.log(timestamp_in_seconds % days_in_seconds);
 
 	let hours = Math.floor(timestamp_in_seconds / 3600);
@@ -397,7 +344,7 @@ function createTimeBlock(name, value)
 	let marker = document.createElement("div");
 	marker.id = `${name}_marker`;
 	marker.className = "time_marker";
-	marker.innerHTML = name;
+	marker.innerHTML = name.charAt(0).toUpperCase() + name.slice(1);
 
 	time_block.prepend(unit);
 	time_block.append(marker);
@@ -414,6 +361,6 @@ function removeTimeBlock(name)
 		let block = unit.parentElement;
 		//document.removeChild(years_time_block);
 		let block_parent = block.parentElement;
-		block_parent.firstChild.remove();
+		block_parent.removeChild(block);
 	}
 }
