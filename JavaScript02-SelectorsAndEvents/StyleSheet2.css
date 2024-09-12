@@ -69,7 +69,32 @@ input
 	border-radius:10px;
 	display:block;
 }
+@font-face {
+	font-family: Digitaldream;
+	src: url('Fonts/DIGITALDREAMFAT.ttf');
+}
+@font-face {
+	font-family: Digital-7;
+	src: url('Fonts/DIGITAL-7.ttf');
+}
+@font-face {
+	font-family: Crashed Scoreboard;
+	src: url('Fonts/Crashed Scoreboard.ttf');
+}
+@font-face {
+	font-family: E1234;
+	src: url('Fonts/E1234.ttf');
+}
+@font-face {
+	font-family: Terminator Two;
+	src: url('Fonts/TERMINAT.TTF');
+}
+
 .time_unit {
+	font-family: Terminator Two;
+	font-size: 45px;
+	color: rgb(200,0,0);
+	/*font-family: Digitaldream;*/
 	width: 148px;
 	height: 148px;
 	background-color: Highlight;
