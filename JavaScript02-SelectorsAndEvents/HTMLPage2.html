@@ -2,61 +2,69 @@
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<meta charset="utf-8" />
-	<title>Events day 2</title>
-	<link rel="stylesheet" href="StyleSheet2.css">
+    <meta charset="utf-8" />
+    <title>Events day 2</title>
+    <link rel="stylesheet" href="StyleSheet2.css">
 </head>
 <body class="light">
-	<div id="header">
-		<div style="width:88%">Header</div>
-		<div><input type="number" min="500" max="8000" step="500" value="500" style="text-align:right" id="bkgDelay"></div>
-		<div id="background_switch"></div>
-		<!--<img src="img/moon.png" alt="Switch background image" id="background_switch">-->
-	</div>
+    <div id="header">
+        <div style="width:88%">Header</div>
+        <div><input type="number" min="500" max="8000" step="500" value="500" style="text-align:right" id="bkgDelay"></div>
+        <div id="background_switch"></div>
+        <!--<img src="img/moon.png" alt="Switch background image" id="background_switch">-->
+    </div>
 
-	<div id="coord"></div>
+    <div id="coord"></div>
 
-	<!--<div>
-		<img src="img/DrunkMonkey.jpg" id="image" style="width:246px; height:205px;">
-		<br>
-		<input type="number" id="numDelay" min="100" max="3000" step="100" style="width:123px;height:50px;font-size:24px">
-		<button id="btnShowHide" style="width:123px;height:58px;font-size:24px;" onclick="setImageVisibilityDelay()">Скрыть</button>
-	</div>-->
-	<div id="DateAndTime"></div>
-	<div id="clock" class="timers">
-		<input type="checkbox" id="cbShowDate">
-		<label for="cbShowDate">Показать дату</label>
-		<div id="timer_display" style="font-size:58px;text-align:center;"></div>
-		<div id="date_display" style="font-size:48px;text-align:center;"></div>
-	</div>
-	<div id="countdownTimer" class="timers">
-		<h2>Countdown timer</h2>
-		<input type="date" id="targetDate" value="2024-10-12">
-		<input type="time" id="targetTime" value="16:00">
-		<input type="button" id="btnStart" value="Start" style="width:150px;height:48px;">
-		<div id="targetDateValue"></div>
-		<div id="targetTimeValue"></div>
-		<div id="timestampOffset"></div>
-		<div id="result"></div>
-		<div id="display">
-			<div class="time_block">
-				<div id="hours_unit" class="time_unit"></div>
-				<div id="hours_marker" class="time_marker">Hours</div>
-			</div>
-			<div class="time_block">
-				<div id="minutes_unit" class="time_unit"></div>
-				<div id="minutes_marker" class="time_marker">Minutes</div>
-			</div>
-			<div class="time_block">
-				<div id="seconds_unit" class="time_unit"></div>
-				<div id="seconds_marker" class="time_marker">Seconds</div>
-			</div>
-		</div>
-		<!--<div id="result" style="text-align:center;"></div>-->
-	</div>
-	<div id="TimestampResearching">
+    <!--<div>
+        <img src="img/DrunkMonkey.jpg" id="image" style="width:246px; height:205px;">
+        <br>
+        <input type="number" id="numDelay" min="100" max="3000" step="100" style="width:123px;height:50px;font-size:24px">
+        <button id="btnShowHide" style="width:123px;height:58px;font-size:24px;" onclick="setImageVisibilityDelay()">Скрыть</button>
+    </div>-->
+    <div id="DateAndTime"></div>
+    <div id="clock" class="timers">
+        <input type="checkbox" id="cbShowDate">
+        <label for="cbShowDate">Показать дату</label>
+        <div id="timer_display" style="font-size:58px;text-align:center;"></div>
+        <div id="date_display" style="font-size:48px;text-align:center;"></div>
+    </div>
+    <div id="countdownTimer" class="timers">
+        <h2>Countdown timer</h2>
+        <input type="date" id="targetDate" value="2024-09-14">
+        <input type="time" id="targetTime" value="16:10">
+        <input type="button" id="btnStart" value="Start" style="width:150px;height:48px;">
+        <div id="targetDateValue"></div>
+        <div id="targetTimeValue"></div>
+        <div id="timestampOffset"></div>
+        <div id="result"></div>
+        <div id="display">
+            <div class="time_block">
+                <div id="hours_unit" class="time_unit"></div>
+                <div id="hours_marker" class="time_marker">Hours</div>
+            </div>
+            <div class="time_block">
+                <div id="minutes_unit" class="time_unit"></div>
+                <div id="minutes_marker" class="time_marker">Minutes</div>
+            </div>
+            <div class="time_block">
+                <div id="seconds_unit" class="time_unit"></div>
+                <div id="seconds_marker" class="time_marker">Seconds</div>
+            </div>
+        </div>
+        <!--<div id="result" style="text-align:center;"></div>-->
+    </div>
+    <div id="TimestampResearching">
 
-	</div>
-	<script type="text/javascript" src="Script2.js"></script>
+    </div>
+    <div id="sound">
+        <audio controls id="player" style="width:100%">
+            <source src="sound/Nightwish_-_Sleeping_Sun.mp3" type="audio/mp3">
+        </audio>
+        <input type="file" id="select_file" />
+        <!--<button id="apply_file">Применить</button>-->
+        <div id="selected_file"></div>
+    </div>
+    <script type="text/javascript" src="Script2.js"></script>
 </body>
 </html>
