@@ -1,13 +1,14 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.34930.48
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35222.181
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9FE9A39B-C3A4-4F12-91F3-7B2A7916765F}"
 	ProjectSection(SolutionItems) = preProject
 		HTMLPage1.html = HTMLPage1.html
-		HTMLPage2.html = HTMLPage2.html
 		HTMLPage3-DOM.html = HTMLPage3-DOM.html
+		HTMLPage2.html = HTMLPage2.html
+		..\index.html = ..\index.html
 		Script1.js = Script1.js
 		Script2.js = Script2.js
 		Script3.js = Script3.js
