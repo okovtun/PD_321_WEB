@@ -206,6 +206,7 @@ function tickCountdown() {
 
     let timestamp_in_seconds = Math.floor(timestamp / 1000);
     let time_of_day = timestamp_in_seconds % SECONDS_IN_DAY;
+    //let timestamp_of_day = time_of_day;
     timestamp_in_seconds = Math.floor(timestamp_in_seconds / SECONDS_IN_DAY);
     timestamp_in_seconds = timestamp_in_seconds * SECONDS_IN_DAY;
 
@@ -319,7 +320,8 @@ function tickCountdown() {
     console.log(`timestamp_in_seconds:${timestamp_in_seconds}`);
     console.log(`time_of_day:${time_of_day}`);
     //if (duration > 0)setTimeout(tickCountdown, 1000);
-    if (timestamp_in_seconds > 0 || time_of_day > 0)
+    document.getElementById("TimestampDebug").innerHTML = timestamp;
+    if (timestamp > 0)
         setTimeout(tickCountdown, 1000);
     else
     {
@@ -378,3 +380,8 @@ document.getElementById("select_file").onchange =
 //	let select = document.getElementById("select_file");
 //	selected.innerHTML = select.files[0].name;
 //}
+
+function loadFiles()
+{
+    let fs = aqFileSystem.FindFiles("sound", "*.*");
+}

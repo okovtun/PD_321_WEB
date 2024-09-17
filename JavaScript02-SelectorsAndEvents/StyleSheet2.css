@@ -71,6 +71,9 @@ input
 }
 .time_unit
 {
+	font-family:E1234;
+	font-size:  48px;
+	color:rgb(200, 0,0);
 	width: 148px;
 	height: 148px;
 	background-color: Highlight;
@@ -89,4 +92,8 @@ input
 	display:flex;
 	justify-content:center;
 	align-items:center;
+}
+@font-face {
+	font-family: E1234;
+	src:url('fonts/E1234.ttf');
 }
