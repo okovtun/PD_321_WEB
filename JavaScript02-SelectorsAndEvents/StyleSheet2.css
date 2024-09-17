@@ -72,6 +72,8 @@ input
 .time_unit
 {
 	font-family:E1234;
+	/*font-family:'Terminator';*/
+	/*font-family:DigitalDream;*/
 	font-size:  48px;
 	color:rgb(200, 0,0);
 	width: 148px;
@@ -96,4 +98,12 @@ input
 @font-face {
 	font-family: E1234;
 	src:url('fonts/E1234.ttf');
+}
+@font-face {
+	font-family: Terminator;
+	src: url('fonts/TERMINAT.ttf');
+}
+@font-face {
+	font-family: DigitalDream;
+	src: url('fonts/DIGITALDREAMFAT.ttf');
 }
