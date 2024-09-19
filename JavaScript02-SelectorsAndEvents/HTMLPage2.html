@@ -60,16 +60,17 @@
     <div id="sound">
         <audio controls id="player" style="width:100%">
             <source src="sound/Nightwish_-_Sleeping_Sun.mp3" type="audio/mp3">
+            <!--<source src="https://www.youtube.com/embed/RMRJ1r36Ips" type="video/mp4" />-->
         </audio>
         <input type="file" id="select_file" />
         <!--<button id="apply_file">Применить</button>-->
         <div id="selected_file"></div>
     </div>
     <div>
-        <button onclick="loadFiles()">Load files</button>
-        <select>
-            
-        </select>
+        <input type="text" placeholder="YouTube video" style="width:100%">
+    </div>
+    <div style="text-align:center">
+        <iframe src="https://www.youtube.com/embed/RMRJ1r36Ips?autoplay=1&mute=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" style="width:640px;height:480px;"></iframe>
     </div>
     <script type="text/javascript" src="Script2.js"></script>
 </body>

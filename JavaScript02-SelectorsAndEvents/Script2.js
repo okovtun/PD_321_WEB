@@ -192,6 +192,7 @@ function tickCountdown() {
 
     timestamp = Math.trunc(timestamp / 1000);
     timestamp *= 1000;
+    let full_timestamp = timestamp;
 
     const DAYS_IN_MONTH = 365 / 12;
     const SECONDS_IN_MONTH = 86400 * DAYS_IN_MONTH;
@@ -321,7 +322,7 @@ function tickCountdown() {
     console.log(`time_of_day:${time_of_day}`);
     //if (duration > 0)setTimeout(tickCountdown, 1000);
     document.getElementById("TimestampDebug").innerHTML = timestamp;
-    if (timestamp > 0)
+    if (full_timestamp > 0)
         setTimeout(tickCountdown, 1000);
     else
     {
