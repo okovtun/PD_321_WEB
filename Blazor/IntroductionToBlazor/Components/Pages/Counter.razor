@@ -14,7 +14,7 @@
     <p>@text</p>
 </div>
 
-<div style="background-color:lightblue" @onmouseover="OnMouseOver" @onmouseout="OnMouseOut">
+<div style="background-color:lightblue" @onmouseover="OnMouseOver" @onmouseout="OnMouseOut" @onmouseup="() => divText=">
     @divText
 </div>
 
@@ -54,4 +54,5 @@
     private void OnChange(ChangeEventArgs e) => text = (string)e.Value!;
     private void OnMouseOver(MouseEventArgs e) => divText = "Mouse over";
     private void OnMouseOut(MouseEventArgs e) => divText = "Mouse out";
+    private void OnMouseUp(MouseEventArgs e) => divText = "Mouse UP";
 }

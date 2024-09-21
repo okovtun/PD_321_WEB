@@ -94,3 +94,8 @@ main {
         right: 0.75rem;
         top: 0.5rem;
     }
+
+.digit {
+    background-color:blue;
+    font-size:48px;
+}
