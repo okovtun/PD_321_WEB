@@ -4,7 +4,7 @@
 <PageTitle>Digits</PageTitle>
 
 <h3>Digits</h3>
-<div role="status" style="display:flex; justify-content:space-between;">
+<div style="display:flex; justify-content:space-between;" @onmouseup="Calculate">
 	@* <div class="digit" @onmouseover="MyOnMouseOver" @onmouseout="MyOnMouseOut">@Values[7]</div> *@
 	<div class="digit" @onmouseup="() => Values[7] = Values[7] == 0 ? 1 : 0">@Values[7]</div>
 	<div class="digit" @onmouseup="() => Values[6] = Values[6] == 0 ? 1 : 0">@Values[6]</div>
@@ -26,16 +26,25 @@
 
 @code {
 	public int[] Values { get; set; } = new int[8];
-	public uint Result { get; set; } = 0;
+	public int Result { get; set; } = 0;
 	public void MyOnMouseOver()
 	{
 		//Values[7] = Values[7] == 0 ? 1 : 0;
-		Result = uint.MaxValue;
+		// Result = uint.MaxValue;
 	}
 	public void MyOnMouseOut()
 	{
 		Values[7] = Values[7] == 0 ? 1 : 0;
-		Result = 0;
+		// Result = 0;
 	}
-
+	public void Calculate()
+	{
+		Result = 0;
+		int weight = 1;
+		for (int i = 0; i < Values.Length; i++, weight*=2)
+		{
+			Result += Values[i] * weight;
+		}
+		// return Result;
+	}
 }
