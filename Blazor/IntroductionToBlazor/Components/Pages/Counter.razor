@@ -8,7 +8,7 @@
 <p role="status">Current count: @currentCount</p>
 
 <div style="display:flex; justify-content:left;">
-    @*  <input type="number" min="1" max="10" style="margin-right:5px;" value="@Step" @onchange="SetStep"> *@
+     <input type="number" min="1" max="10" style="margin-right:5px;" @onchange="SetStep" value="@Step">
     <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
     <input @oninput="OnChange">
     <p>@text</p>
@@ -48,9 +48,9 @@
 
     private void IncrementCount()
     {
-        currentCount++;
+        currentCount+=Step;
     }
-    private void SetStep(ChangeEventArgs e) => Step = (int)e.Value!;
+    private void SetStep(ChangeEventArgs e) => Step = Convert.ToInt32(e.Value!);
     private void OnChange(ChangeEventArgs e) => text = (string)e.Value!;
     private void OnMouseOver(MouseEventArgs e) => divText = "Mouse over";
     private void OnMouseOut(MouseEventArgs e) => divText = "Mouse out";
