@@ -14,3 +14,14 @@
     text-align: right;
     width: 300px;
 }
+.bin, .hex {
+    display: inline-flex;
+    justify-content: space-between;
+}
+.hex_digit {
+    /*background-color:darkblue;
+    color:aliceblue;*/
+    font-size:58px;
+    width:340px;
+    text-align:center;
+}
