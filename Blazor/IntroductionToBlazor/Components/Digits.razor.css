@@ -8,9 +8,9 @@
     width:85px;
     text-align:center;
 }
-.result {
-    background-color:limegreen;
-    font-size:48px;
-    text-align:right;
-    width:300px;
+.decimal {
+    background-color: limegreen;
+    font-size: 48px;
+    text-align: right;
+    width: 300px;
 }
