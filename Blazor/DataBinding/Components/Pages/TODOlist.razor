@@ -1,0 +1,36 @@
+﻿@page "/TODOlist"
+@rendermode InteractiveServer
+
+<h3>TODOlist (@todos.Count(testc => !testc.IsDONE))</h3>
+
+<input @bind='TODOnewItem'>
+<button @onclick='AddItem'>Add item</button>
+
+<ol>
+	@foreach (TODOitem i in todos)
+	{
+		<li>@i.Title</li>
+	}
+</ol>
+
+@code {
+
+	List<TODOitem> todos = new List<TODOitem>();
+
+	string TODOnewItem = "";
+
+	public class TODOitem
+	{
+		public string Title { get; set; }
+		public bool IsDONE { get; set; }
+	}
+
+	public void AddItem(MouseEventArgs e)
+	{
+		if (!string.IsNullOrWhiteSpace(TODOnewItem))
+		{
+			todos.Add(new TODOitem { Title = TODOnewItem });
+			TODOnewItem = "";
+		}
+	}
+}

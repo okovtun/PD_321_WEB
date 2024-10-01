@@ -1,0 +1,28 @@
+﻿@page "/"
+@rendermode InteractiveServer
+
+<PageTitle>Home</PageTitle>
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+<div id="DataBinding">
+	<h2> DataBinding</h2>
+	@* <input value = "@text" @onchange="(ChangeEventArgs e) => text = (string)e.Value!"> *@
+	<input @bind="text" @bind:event='oninput' @bind:after="Search">
+	<button @onclick = '() => text=""'>Clear</button>
+	<p>@text</p>
+	<p>@searchResults</p>
+</div>
+
+@code{
+	string text = "";
+	string searchResults = "";
+	async Task Search()
+	{
+		searchResults = "Searching...";
+		await Task.Delay(1000);
+		searchResults = $"Found {Random.Shared.Next()} results";
+	}
+}
