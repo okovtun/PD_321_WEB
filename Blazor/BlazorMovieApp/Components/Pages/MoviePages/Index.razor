@@ -5,35 +5,48 @@
 @using BlazorMovieApp.Data
 @implements IAsyncDisposable
 @inject IDbContextFactory<BlazorMovieApp.Data.BlazorMovieAppContext> DbFactory
+@rendermode InteractiveServer
 
 <PageTitle>Index</PageTitle>
 
 <h1>Index</h1>
 
 <p>
-    <a href="movies/create">Create New</a>
+	<a href="movies/create">Create New</a>
 </p>
 
-<QuickGrid Class="table" Items="context.Movie">
-    <PropertyColumn Property="movie => movie.Title" />
-    <PropertyColumn Property="movie => movie.ReleaseDate" />
-    <PropertyColumn Property="movie => movie.Genre" />
-    <PropertyColumn Property="movie => movie.Price" />
+<QuickGrid Class="table" Items="FilteredMovies" Pagination="state">
+	<PropertyColumn Property="movie => movie.Title" Sortable="true">
+		<ColumnOptions>
+			<div>
+				<input type="search" @bind="titleFilter" @bind:event="oninput" autofocus />
+			</div>
+		</ColumnOptions>
+	</PropertyColumn>
+	<PropertyColumn Property="movie => movie.ReleaseDate" Title="Rease date" Format="yyyy.MM.dd" Sortable="true" />
+	<PropertyColumn Property="movie => movie.Genre" Sortable="true" />
+	<PropertyColumn Property="movie => movie.Price" Sortable="true" />
 
-    <TemplateColumn Context="movie">
-        <a href="@($"movies/edit?id={movie.Id}")">Edit</a> |
-        <a href="@($"movies/details?id={movie.Id}")">Details</a> |
-        <a href="@($"movies/delete?id={movie.Id}")">Delete</a>
-    </TemplateColumn>
+	<TemplateColumn Context="movie">
+		<a href="@($"movies/edit?id={movie.Id}")">Edit</a> |
+		<a href="@($"movies/details?id={movie.Id}")">Details</a> |
+		<a href="@($"movies/delete?id={movie.Id}")">Delete</a>
+	</TemplateColumn>
 </QuickGrid>
 
+<Paginator State="state" />
+
 @code {
-    private BlazorMovieAppContext context = default!;
+	PaginationState state = new PaginationState { ItemsPerPage = 2 };
+	string titleFilter = "";
+	IQueryable<Movie> FilteredMovies => context.Movie.Where(m => m.Title.Contains(titleFilter));
 
-    protected override void OnInitialized()
-    {
-        context = DbFactory.CreateDbContext();
-    }
+	private BlazorMovieAppContext context = default!;
 
-    public async ValueTask DisposeAsync() => await context.DisposeAsync();
+	protected override void OnInitialized()
+	{
+		context = DbFactory.CreateDbContext();
+	}
+
+	public async ValueTask DisposeAsync() => await context.DisposeAsync();
 }
