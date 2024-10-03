@@ -9,7 +9,7 @@
 <ol>
 	@foreach (TODOitem i in todos)
 	{
-		<li>@i.Title</li>
+		<li>@i.Title <input type="checkbox" @bind="i.IsDONE" />Выполнено</li>
 	}
 </ol>
 
