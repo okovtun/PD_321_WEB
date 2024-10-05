@@ -14,7 +14,13 @@
 <p>
 	<a href="movies/create">Create New</a>
 </p>
-
+<div>
+	<select @onchange="(ChangeEventArgs e) => state.ItemsPerPage = Convert.ToInt32(e.Value)">
+		<option value="1">1</option>
+		<option value="2">2</option>
+		<option value="3">3</option>
+	</select>
+</div>
 <QuickGrid Class="table" Items="FilteredMovies" Pagination="state">
 	<PropertyColumn Property="movie => movie.Title" Sortable="true">
 		<ColumnOptions>
@@ -49,4 +55,10 @@
 	}
 
 	public async ValueTask DisposeAsync() => await context.DisposeAsync();
+
+	// public void ChangeItemsPerPage(ChangeEventArgs e)
+	// {
+	// 	// state.ItemsPerPage = Convert.ToInt32(e.ToString());
+	// 	state.ItemsPerPage = Convert.ToInt32(e.Value);
+	// }
 }
