@@ -11,15 +11,19 @@
 
 <h1>Index</h1>
 
-<p>
-	<a href="movies/create">Create New</a>
-</p>
-<div>
-	<select @bind="state.ItemsPerPage">
-		<option value="1">1</option>
-		<option value="2">2</option>
-		<option value="3">3</option>
-	</select>
+<div style="display:flex; justify-content:space-between">
+	<div>
+		<p>
+			<a href="movies/create">Create New</a>
+		</p>
+	</div>
+	<div>
+		<select @bind="state.ItemsPerPage">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+		</select>
+	</div>
 </div>
 <QuickGrid Class="table" Items="FilteredMovies" Pagination="state">
 	<PropertyColumn Property="movie => movie.Title" Sortable="true">
