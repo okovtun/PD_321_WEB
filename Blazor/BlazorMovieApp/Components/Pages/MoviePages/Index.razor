@@ -15,7 +15,7 @@
 	<a href="movies/create">Create New</a>
 </p>
 <div>
-	<select @onchange="(ChangeEventArgs e) => state.ItemsPerPage = Convert.ToInt32(e.Value)">
+	<select @bind="state.ItemsPerPage">
 		<option value="1">1</option>
 		<option value="2">2</option>
 		<option value="3">3</option>
