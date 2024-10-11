@@ -5,8 +5,12 @@
     },
     "mssql1": {
       "type": "mssql",
-      "connectionId": "ConnectionStrings:BlazorAppPD_212Context",
+      "connectionId": "ConnectionStrings:PD_212",
       "dynamicId": null
+    },
+    "mssql2": {
+      "type": "mssql",
+      "connectionId": "ConnectionStrings:BlazorAppPD_212Context"
     }
   }
 }

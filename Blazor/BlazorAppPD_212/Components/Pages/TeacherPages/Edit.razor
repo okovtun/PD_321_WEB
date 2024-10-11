@@ -21,31 +21,31 @@ else
             <EditForm method="post" Model="Teacher" OnValidSubmit="UpdateTeacher" FormName="edit" Enhance>
                 <DataAnnotationsValidator />
                 <ValidationSummary />
-                <input type="hidden" name="Teacher.Id" value="@Teacher.Id" />
-                <div class="mb-3">
-                    <label for="worksince" class="form-label">WorkSince:</label>
-                    <InputDate id="worksince" @bind-Value="Teacher.WorkSince" class="form-control" />
-                    <ValidationMessage For="() => Teacher.WorkSince" class="text-danger" />
-                </div>
+                <input type="hidden" name="Teacher.Id" value="@Teacher.teacher_id" />
                 <div class="mb-3">
                     <label for="lastname" class="form-label">LastName:</label>
-                    <InputText id="lastname" @bind-Value="Teacher.LastName" class="form-control" />
-                    <ValidationMessage For="() => Teacher.LastName" class="text-danger" />
+                    <InputText id="lastname" @bind-Value="Teacher.last_name" class="form-control" />
+                    <ValidationMessage For="() => Teacher.last_name" class="text-danger" />
                 </div>
                 <div class="mb-3">
                     <label for="firstname" class="form-label">FirstName:</label>
-                    <InputText id="firstname" @bind-Value="Teacher.FirstName" class="form-control" />
-                    <ValidationMessage For="() => Teacher.FirstName" class="text-danger" />
+                    <InputText id="firstname" @bind-Value="Teacher.first_name" class="form-control" />
+                    <ValidationMessage For="() => Teacher.first_name" class="text-danger" />
                 </div>
                 <div class="mb-3">
                     <label for="middlename" class="form-label">MiddleName:</label>
-                    <InputText id="middlename" @bind-Value="Teacher.MiddleName" class="form-control" />
-                    <ValidationMessage For="() => Teacher.MiddleName" class="text-danger" />
+                    <InputText id="middlename" @bind-Value="Teacher.middle_name" class="form-control" />
+                    <ValidationMessage For="() => Teacher.middle_name" class="text-danger" />
                 </div>
                 <div class="mb-3">
                     <label for="birthdate" class="form-label">BirthDate:</label>
-                    <InputDate id="birthdate" @bind-Value="Teacher.BirthDate" class="form-control" />
-                    <ValidationMessage For="() => Teacher.BirthDate" class="text-danger" />
+                    <InputDate id="birthdate" @bind-Value="Teacher.birth_date" class="form-control" />
+                    <ValidationMessage For="() => Teacher.birth_date" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="worksince" class="form-label">WorkSince:</label>
+                    <InputDate id="worksince" @bind-Value="Teacher.work_since" class="form-control" />
+                    <ValidationMessage For="() => Teacher.work_since" class="text-danger" />
                 </div>
                 <button type="submit" class="btn btn-primary">Save</button>
             </EditForm>
@@ -67,7 +67,7 @@ else
     protected override async Task OnInitializedAsync()
     {
         using var context = DbFactory.CreateDbContext();
-        Teacher ??= await context.Teacher.FirstOrDefaultAsync(m => m.Id == Id);
+        Teacher ??= await context.Teachers.FirstOrDefaultAsync(m => m.teacher_id == Id);
 
         if (Teacher is null)
         {
@@ -88,7 +88,7 @@ else
         }
         catch (DbUpdateConcurrencyException)
         {
-            if (!TeacherExists(Teacher!.Id))
+            if (!TeacherExists(Teacher!.teacher_id))
             {
                 NavigationManager.NavigateTo("notfound");
             }
@@ -104,6 +104,6 @@ else
     private bool TeacherExists(int id)
     {
         using var context = DbFactory.CreateDbContext();
-        return context.Teacher.Any(e => e.Id == id);
+        return context.Teachers.Any(e => e.teacher_id == id);
     }
 }

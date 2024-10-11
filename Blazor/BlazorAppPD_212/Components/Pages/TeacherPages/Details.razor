@@ -17,19 +17,19 @@
     }
     else {
         <dl class="row">
-            <dt class="col-sm-2">WorkSince</dt>
-            <dd class="col-sm-10">@teacher.WorkSince</dd>
             <dt class="col-sm-2">LastName</dt>
-            <dd class="col-sm-10">@teacher.LastName</dd>
+            <dd class="col-sm-10">@teacher.last_name</dd>
             <dt class="col-sm-2">FirstName</dt>
-            <dd class="col-sm-10">@teacher.FirstName</dd>
+            <dd class="col-sm-10">@teacher.first_name</dd>
             <dt class="col-sm-2">MiddleName</dt>
-            <dd class="col-sm-10">@teacher.MiddleName</dd>
+            <dd class="col-sm-10">@teacher.middle_name</dd>
             <dt class="col-sm-2">BirthDate</dt>
-            <dd class="col-sm-10">@teacher.BirthDate</dd>
+            <dd class="col-sm-10">@teacher.birth_date</dd>
+            <dt class="col-sm-2">WorkSince</dt>
+            <dd class="col-sm-10">@teacher.work_since</dd>
         </dl>
         <div>
-            <a href="@($"/teachers/edit?id={teacher.Id}")">Edit</a> |
+            <a href="@($"/teachers/edit?id={teacher.teacher_id}")">Edit</a> |
             <a href="@($"/teachers")">Back to List</a>
         </div>
     }
@@ -44,7 +44,7 @@
     protected override async Task OnInitializedAsync()
     {
         using var context = DbFactory.CreateDbContext();
-        teacher = await context.Teacher.FirstOrDefaultAsync(m => m.Id == Id);
+        teacher = await context.Teachers.FirstOrDefaultAsync(m => m.teacher_id == Id);
 
         if (teacher is null)
         {

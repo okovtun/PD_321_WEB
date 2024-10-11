@@ -17,28 +17,28 @@
             <ValidationSummary class="text-danger" />
             <div class="mb-3">
                 <label for="worksince" class="form-label">WorkSince:</label> 
-                <InputDate id="worksince" @bind-Value="Teacher.WorkSince" class="form-control" /> 
-                <ValidationMessage For="() => Teacher.WorkSince" class="text-danger" /> 
+                <InputDate id="worksince" @bind-Value="Teacher.work_since" class="form-control" /> 
+                <ValidationMessage For="() => Teacher.work_since" class="text-danger" /> 
             </div>        
             <div class="mb-3">
                 <label for="lastname" class="form-label">LastName:</label> 
-                <InputText id="lastname" @bind-Value="Teacher.LastName" class="form-control" /> 
-                <ValidationMessage For="() => Teacher.LastName" class="text-danger" /> 
+                <InputText id="lastname" @bind-Value="Teacher.last_name" class="form-control" /> 
+                <ValidationMessage For="() => Teacher.last_name" class="text-danger" /> 
             </div>        
             <div class="mb-3">
                 <label for="firstname" class="form-label">FirstName:</label> 
-                <InputText id="firstname" @bind-Value="Teacher.FirstName" class="form-control" /> 
-                <ValidationMessage For="() => Teacher.FirstName" class="text-danger" /> 
+                <InputText id="firstname" @bind-Value="Teacher.first_name" class="form-control" /> 
+                <ValidationMessage For="() => Teacher.first_name" class="text-danger" /> 
             </div>        
             <div class="mb-3">
                 <label for="middlename" class="form-label">MiddleName:</label> 
-                <InputText id="middlename" @bind-Value="Teacher.MiddleName" class="form-control" /> 
-                <ValidationMessage For="() => Teacher.MiddleName" class="text-danger" /> 
+                <InputText id="middlename" @bind-Value="Teacher.middle_name" class="form-control" /> 
+                <ValidationMessage For="() => Teacher.middle_name" class="text-danger" /> 
             </div>        
             <div class="mb-3">
                 <label for="birthdate" class="form-label">BirthDate:</label> 
-                <InputDate id="birthdate" @bind-Value="Teacher.BirthDate" class="form-control" /> 
-                <ValidationMessage For="() => Teacher.BirthDate" class="text-danger" /> 
+                <InputDate id="birthdate" @bind-Value="Teacher.birth_date" class="form-control" /> 
+                <ValidationMessage For="() => Teacher.birth_date" class="text-danger" /> 
             </div>        
             <button type="submit" class="btn btn-primary">Create</button>
         </EditForm>
@@ -57,7 +57,7 @@
     private async Task AddTeacher()
     {
         using var context = DbFactory.CreateDbContext();
-        context.Teacher.Add(Teacher);
+        context.Teachers.Add(Teacher);
         await context.SaveChangesAsync();
         NavigationManager.NavigateTo("/teachers");
     }
