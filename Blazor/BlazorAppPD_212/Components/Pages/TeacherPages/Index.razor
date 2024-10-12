@@ -15,12 +15,30 @@
     <a href="teachers/create">Create New</a>
 </p>
 
-<QuickGrid Class="table" Items="context.Teachers">
+<QuickGrid Class="table" Items="FilteredTeachers">
     <PropertyColumn Property="teacher => teacher.teacher_id"  Sortable="true" Title="ID"/>
-    @* <PropertyColumn Property="teacher => teacher.last_name"  Sortable="true" Title="Фамилия"/>
-    <PropertyColumn Property="teacher => teacher.first_name" Sortable="true" Title="Имя"/>
-    <PropertyColumn Property="teacher => teacher.middle_name"Sortable="true" Title="Отчество" /> *@
-    <PropertyColumn Property='teacher => $"{teacher.last_name} {teacher.first_name} {teacher.middle_name}"' Sortable="true" Title="ФИО"/>
+    <PropertyColumn Property="teacher => teacher.last_name"  Sortable="true" Title="Фамилия">
+        <ColumnOptions>
+            <div>
+                <input type="search" @bind="lastNameFilter" @bind:event="oninput"></input>
+            </div>
+        </ColumnOptions>
+    </PropertyColumn>>
+    <PropertyColumn Property="teacher => teacher.first_name" Sortable="true" Title="Имя">
+        <ColumnOptions>
+            <div>
+                <input type="search" @bind="firstNameFilter" @bind:event="oninput"></input>
+            </div>
+        </ColumnOptions>
+    </PropertyColumn>>
+    <PropertyColumn Property="teacher => teacher.middle_name"Sortable="true" Title="Отчество">
+        <ColumnOptions>
+            <div>
+                <input type="search" @bind="middleNameFilter" @bind:event="oninput"></input>
+            </div>
+        </ColumnOptions>
+    </PropertyColumn>>
+   @*  <PropertyColumn Property='teacher => $"{teacher.last_name} {teacher.first_name} {teacher.middle_name}"' Sortable="true" Title="ФИО"/> *@
     <PropertyColumn Property="teacher => teacher.birth_date" Sortable="true" Title="Дата рождения"/>
     <PropertyColumn Property="teacher => teacher.work_since" Sortable="true" Title="Начало работы"/>
 
@@ -32,6 +50,11 @@
 </QuickGrid>
 
 @code {
+    string lastNameFilter = "";
+    string firstNameFilter = "";
+    string middleNameFilter = "";
+    IQueryable<Teacher> FilteredTeachers => context.Teachers.Where(t => (t.last_name.Contains(lastNameFilter) && t.first_name.Contains(firstNameFilter) && t.middle_name.Contains(middleNameFilter)));
+
     private BlazorAppPD_212Context context = default!;
 
     protected override void OnInitialized()
