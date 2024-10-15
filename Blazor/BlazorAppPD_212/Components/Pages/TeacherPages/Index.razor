@@ -7,60 +7,87 @@
 @inject IDbContextFactory<BlazorAppPD_212.Data.BlazorAppPD_212Context> DbFactory
 @rendermode InteractiveServer
 
-<PageTitle>Index</PageTitle>
+<PageTitle>Teachers</PageTitle>
 
-<h1>Index</h1>
+<h1>Teachers</h1>
 
-<p>
-    <a href="teachers/create">Create New</a>
-</p>
+<div style="display:flex; justify-content:space-between;">
+	<div>
+		<a href="teachers/create">Create New</a>
+	</div>
+	<div>
+		<button class="btn btn-primary" @onclick="ResetFilters">Reset filters</button>
+	</div>
 
-<QuickGrid Class="table" Items="FilteredTeachers">
-    <PropertyColumn Property="teacher => teacher.teacher_id"  Sortable="true" Title="ID"/>
-    <PropertyColumn Property="teacher => teacher.last_name"  Sortable="true" Title="Фамилия">
-        <ColumnOptions>
-            <div>
-                <input type="search" @bind="lastNameFilter" @bind:event="oninput"></input>
-            </div>
-        </ColumnOptions>
-    </PropertyColumn>>
-    <PropertyColumn Property="teacher => teacher.first_name" Sortable="true" Title="Имя">
-        <ColumnOptions>
-            <div>
-                <input type="search" @bind="firstNameFilter" @bind:event="oninput"></input>
-            </div>
-        </ColumnOptions>
-    </PropertyColumn>>
-    <PropertyColumn Property="teacher => teacher.middle_name"Sortable="true" Title="Отчество">
-        <ColumnOptions>
-            <div>
-                <input type="search" @bind="middleNameFilter" @bind:event="oninput"></input>
-            </div>
-        </ColumnOptions>
-    </PropertyColumn>>
-   @*  <PropertyColumn Property='teacher => $"{teacher.last_name} {teacher.first_name} {teacher.middle_name}"' Sortable="true" Title="ФИО"/> *@
-    <PropertyColumn Property="teacher => teacher.birth_date" Sortable="true" Title="Дата рождения"/>
-    <PropertyColumn Property="teacher => teacher.work_since" Sortable="true" Title="Начало работы"/>
+</div>
 
-    <TemplateColumn Context="teacher">
-        <a href="@($"teachers/edit?id={teacher.teacher_id}")">Edit</a> |
-        <a href="@($"teachers/details?id={teacher.teacher_id}")">Details</a> |
-        <a href="@($"teachers/delete?id={teacher.teacher_id}")">Delete</a>
-    </TemplateColumn>
+<QuickGrid Class="table" Items="FilteredTeachers" Pagination="state">
+	<PropertyColumn Property="teacher => teacher.teacher_id" Sortable="true" Title="ID" />
+	<PropertyColumn Property="teacher => teacher.last_name" Sortable="true" Title="Фамилия">
+		<ColumnOptions>
+			<div>
+				<input type="search" @bind="lastNameFilter" @bind:event="oninput"></input>
+			</div>
+		</ColumnOptions>
+	</PropertyColumn>
+	<PropertyColumn Property="teacher => teacher.first_name" Sortable="true" Title="Имя">
+		<ColumnOptions>
+			<div>
+				<input type="search" @bind="firstNameFilter" @bind:event="oninput"></input>
+			</div>
+		</ColumnOptions>
+	</PropertyColumn>
+	<PropertyColumn Property="teacher => teacher.middle_name" Sortable="true" Title="Отчество">
+		<ColumnOptions>
+			<div>
+				<input type="search" @bind="middleNameFilter" @bind:event="oninput"></input>
+			</div>
+		</ColumnOptions>
+	</PropertyColumn>
+	@*  <PropertyColumn Property='teacher => $"{teacher.last_name} {teacher.first_name} {teacher.middle_name}"' Sortable="true" Title="ФИО"/> *@
+	<PropertyColumn Property="teacher => (DateTime.Today - teacher.work_since).Days/365" Sortable="true" Title="Опыт преподаватния"></PropertyColumn>
+	<PropertyColumn Property="teacher => (DateTime.Today - teacher.birth_date).Days/365" Sortable="true" Title="Возраст"></PropertyColumn>
+	@* <PropertyColumn Property="teacher => teacher.birth_date" Sortable="true" Title="Дата рождения"/>
+	<PropertyColumn Property="teacher => teacher.work_since" Sortable="true" Title="Начало работы"/> *@
+
+	<TemplateColumn Context="teacher">
+		@* <a href="@($"teachers/edit?id={teacher.teacher_id}")">Edit</a> | *@
+		<a href="@($"teachers/details?id={teacher.teacher_id}")">Details</a>
+		@* <a href="@($"teachers/delete?id={teacher.teacher_id}")">Delete</a> *@
+	</TemplateColumn>
 </QuickGrid>
 
+<Paginator State="state"/>
+
+<div>
+	<select @bind="state.ItemsPerPage" @bind:event="onchange">
+		<option>3</option>
+		<option>5</option>
+		<option>10</option>
+		<option>15</option>
+	</select>
+</div>
+
 @code {
-    string lastNameFilter = "";
-    string firstNameFilter = "";
-    string middleNameFilter = "";
-    IQueryable<Teacher> FilteredTeachers => context.Teachers.Where(t => (t.last_name.Contains(lastNameFilter) && t.first_name.Contains(firstNameFilter) && t.middle_name.Contains(middleNameFilter)));
+	PaginationState state = new PaginationState { ItemsPerPage = 5 };
+	string lastNameFilter = "";
+	string firstNameFilter = "";
+	string middleNameFilter = "";
+	IQueryable<Teacher> FilteredTeachers => context.Teachers.Where(t => (t.last_name.Contains(lastNameFilter) && t.first_name.Contains(firstNameFilter) && t.middle_name.Contains(middleNameFilter)));
 
-    private BlazorAppPD_212Context context = default!;
+	private BlazorAppPD_212Context context = default!;
 
-    protected override void OnInitialized()
-    {
-        context = DbFactory.CreateDbContext();
-    }
+	protected override void OnInitialized()
+	{
+		context = DbFactory.CreateDbContext();
+	}
 
-    public async ValueTask DisposeAsync() => await context.DisposeAsync();
+	public async ValueTask DisposeAsync() => await context.DisposeAsync();
+
+	public void ResetFilters()
+	{
+		lastNameFilter = "";
+		firstNameFilter = "";
+		middleNameFilter = "";
+	}
 }
