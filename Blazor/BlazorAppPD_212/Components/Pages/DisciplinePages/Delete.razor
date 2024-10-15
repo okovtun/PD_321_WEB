@@ -1,0 +1,59 @@
+﻿@page "/disciplines/delete"
+@using Microsoft.EntityFrameworkCore
+@using BlazorAppPD_212.Models
+@inject IDbContextFactory<BlazorAppPD_212.Data.BlazorAppPD_212Context> DbFactory
+@inject NavigationManager NavigationManager
+
+<PageTitle>Delete</PageTitle>
+
+<h1>Delete</h1>
+
+<p>Are you sure you want to delete this?</p>
+<div>
+    <h2>Discipline</h2>
+    <hr />
+    @if (discipline is null)
+    {
+        <p><em>Loading...</em></p>
+    }
+    else {
+        <dl class="row">
+            <dt class="col-sm-2">discipline_name</dt>
+            <dd class="col-sm-10">@discipline.discipline_name</dd>
+        </dl>
+        <dl class="row">
+            <dt class="col-sm-2">number_of_lessons</dt>
+            <dd class="col-sm-10">@discipline.number_of_lessons</dd>
+        </dl>
+        <EditForm method="post" Model="discipline" OnValidSubmit="DeleteDiscipline" FormName="delete" Enhance>
+            <button type="submit" class="btn btn-danger" disabled="@(discipline is null)">Delete</button> |
+            <a href="/disciplines">Back to List</a>
+        </EditForm>
+    }
+</div>
+
+@code {
+    private Discipline? discipline;
+
+    [SupplyParameterFromQuery]
+    private int discipline_id { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        using var context = DbFactory.CreateDbContext();
+        discipline = await context.Disciplines.FirstOrDefaultAsync(m => m.discipline_id == discipline_id);
+
+        if (discipline is null)
+        {
+            NavigationManager.NavigateTo("notfound");
+        }
+    }
+
+    private async Task DeleteDiscipline()
+    {
+        using var context = DbFactory.CreateDbContext();
+        context.Disciplines.Remove(discipline!);
+        await context.SaveChangesAsync();
+        NavigationManager.NavigateTo("/disciplines");
+    }
+}

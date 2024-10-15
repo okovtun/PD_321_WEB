@@ -1,0 +1,94 @@
+﻿@page "/disciplines/edit"
+@using Microsoft.EntityFrameworkCore
+@using BlazorAppPD_212.Models
+@inject IDbContextFactory<BlazorAppPD_212.Data.BlazorAppPD_212Context> DbFactory
+@inject NavigationManager NavigationManager
+
+<PageTitle>Edit</PageTitle>
+
+<h1>Edit</h1>
+
+<h2>Discipline</h2>
+<hr />
+@if (Discipline is null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <div class="row">
+        <div class="col-md-4">
+            <EditForm method="post" Model="Discipline" OnValidSubmit="UpdateDiscipline" FormName="edit" Enhance>
+                <DataAnnotationsValidator />
+                <ValidationSummary />
+                <input type="hidden" name="Discipline.discipline_id" value="@Discipline.discipline_id" />
+                <div class="mb-3">
+                    <label for="discipline_name" class="form-label">discipline_name:</label>
+                    <InputText id="discipline_name" @bind-Value="Discipline.discipline_name" class="form-control" />
+                    <ValidationMessage For="() => Discipline.discipline_name" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="number_of_lessons" class="form-label">number_of_lessons:</label>
+                    <InputNumber id="number_of_lessons" @bind-Value="Discipline.number_of_lessons" class="form-control" />
+                    <ValidationMessage For="() => Discipline.number_of_lessons" class="text-danger" />
+                </div>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </EditForm>
+        </div>
+    </div>
+}
+
+<div>
+    <a href="/disciplines">Back to List</a>
+</div>
+
+@code {
+    [SupplyParameterFromQuery]
+    private int discipline_id { get; set; }
+
+    [SupplyParameterFromForm]
+    private Discipline? Discipline { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        using var context = DbFactory.CreateDbContext();
+        Discipline ??= await context.Disciplines.FirstOrDefaultAsync(m => m.discipline_id == discipline_id);
+
+        if (Discipline is null)
+        {
+            NavigationManager.NavigateTo("notfound");
+        }
+    }
+
+    // To protect from overposting attacks, enable the specific properties you want to bind to.
+    // For more information, see https://learn.microsoft.com/aspnet/core/blazor/forms/#mitigate-overposting-attacks.
+    private async Task UpdateDiscipline()
+    {
+        using var context = DbFactory.CreateDbContext();
+        context.Attach(Discipline!).State = EntityState.Modified;
+
+        try
+        {
+            await context.SaveChangesAsync();
+        }
+        catch (DbUpdateConcurrencyException)
+        {
+            if (!DisciplineExists(Discipline!.discipline_id))
+            {
+                NavigationManager.NavigateTo("notfound");
+            }
+            else
+            {
+                throw;
+            }
+        }
+
+        NavigationManager.NavigateTo("/disciplines");
+    }
+
+    private bool DisciplineExists(int discipline_id)
+    {
+        using var context = DbFactory.CreateDbContext();
+        return context.Disciplines.Any(e => e.discipline_id == discipline_id);
+    }
+}

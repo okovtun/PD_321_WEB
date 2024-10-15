@@ -1,0 +1,39 @@
+﻿@page "/disciplines"
+@using Microsoft.EntityFrameworkCore
+@using Microsoft.AspNetCore.Components.QuickGrid
+@using BlazorAppPD_212.Models
+@using BlazorAppPD_212.Data
+@implements IAsyncDisposable
+@inject IDbContextFactory<BlazorAppPD_212.Data.BlazorAppPD_212Context> DbFactory
+@rendermode InteractiveServer
+
+<PageTitle>Disciplines</PageTitle>
+
+<h1>Disciplines</h1>
+
+<p>
+    <a href="disciplines/create">Create New</a>
+</p>
+
+<QuickGrid Class="table" Items="context.Disciplines">
+    <PropertyColumn Property="discipline => discipline.discipline_id" Sortable="true" Title="ID"/>
+    <PropertyColumn Property="discipline => discipline.discipline_name" Sortable="true" Title="Название дисциплины"/>
+    <PropertyColumn Property="discipline => discipline.number_of_lessons" Sortable="true" Title="Количество уроков"/>
+
+    <TemplateColumn Context="discipline">
+        <a href="@($"disciplines/edit?discipline_id={discipline.discipline_id}")">Edit</a> |
+        <a href="@($"disciplines/details?discipline_id={discipline.discipline_id}")">Details</a> |
+        <a href="@($"disciplines/delete?discipline_id={discipline.discipline_id}")">Delete</a>
+    </TemplateColumn>
+</QuickGrid>
+
+@code {
+    private BlazorAppPD_212Context context = default!;
+
+    protected override void OnInitialized()
+    {
+        context = DbFactory.CreateDbContext();
+    }
+
+    public async ValueTask DisposeAsync() => await context.DisposeAsync();
+}

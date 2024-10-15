@@ -1,0 +1,48 @@
+﻿@page "/disciplines/details"
+@using Microsoft.EntityFrameworkCore
+@using BlazorAppPD_212.Models
+@inject IDbContextFactory<BlazorAppPD_212.Data.BlazorAppPD_212Context> DbFactory
+@inject NavigationManager NavigationManager
+
+<PageTitle>Details</PageTitle>
+
+<h1>Details</h1>
+
+<div>
+    <h2>Discipline</h2>
+    <hr />
+    @if (discipline is null)
+    {
+        <p><em>Loading...</em></p>
+    }
+    else {
+        <dl class="row">
+            <dt class="col-sm-2">discipline_name</dt>
+            <dd class="col-sm-10">@discipline.discipline_name</dd>
+            <dt class="col-sm-2">number_of_lessons</dt>
+            <dd class="col-sm-10">@discipline.number_of_lessons</dd>
+        </dl>
+        <div>
+            <a href="@($"/disciplines/edit?discipline_id={discipline.discipline_id}")">Edit</a> |
+            <a href="@($"/disciplines")">Back to List</a>
+        </div>
+    }
+</div>
+
+@code {
+    private Discipline? discipline;
+
+    [SupplyParameterFromQuery]
+    private int discipline_id { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        using var context = DbFactory.CreateDbContext();
+        discipline = await context.Disciplines.FirstOrDefaultAsync(m => m.discipline_id == discipline_id);
+
+        if (discipline is null)
+        {
+            NavigationManager.NavigateTo("notfound");
+        }
+    }
+}
