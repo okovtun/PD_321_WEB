@@ -15,10 +15,28 @@
     <a href="disciplines/create">Create New</a>
 </p>
 
-<QuickGrid Class="table" Items="context.Disciplines">
-    <PropertyColumn Property="discipline => discipline.discipline_id" Sortable="true" Title="ID"/>
-    <PropertyColumn Property="discipline => discipline.discipline_name" Sortable="true" Title="Название дисциплины"/>
-    <PropertyColumn Property="discipline => discipline.number_of_lessons" Sortable="true" Title="Количество уроков"/>
+<QuickGrid Class="table" Items="FilteredDisciplines">
+    <PropertyColumn Property="discipline => discipline.discipline_id" Sortable="true" Title="ID">
+        <ColumnOptions>
+            <div>
+                <input type="search" @bind="idFilter" @bind:event="onchange"></input>
+            </div>
+        </ColumnOptions>
+        </PropertyColumn>
+    <PropertyColumn Property="discipline => discipline.discipline_name" Sortable="true" Title="Название дисциплины">
+        <ColumnOptions>
+            <div>
+                <input type="search" @bind="disciplineNameFilter" @bind:event="oninput"></input>
+            </div>
+        </ColumnOptions>
+    </PropertyColumn>
+    <PropertyColumn Property="discipline => discipline.number_of_lessons" Sortable="true" Title="Количество уроков">
+        <ColumnOptions>
+            <div>
+                <input type="search" @bind="numberOfLessonsFilter" @bind:event="oninput"></input>
+            </div>
+        </ColumnOptions>
+    </PropertyColumn>
 
     <TemplateColumn Context="discipline">
         <a href="@($"disciplines/edit?discipline_id={discipline.discipline_id}")">Edit</a> |
@@ -30,10 +48,28 @@
 @code {
     private BlazorAppPD_212Context context = default!;
 
+    int idFilter = 0;
+    string disciplineNameFilter = "";
+    int numberOfLessonsFilter = 0;
+    IQueryable<Discipline> FilteredDisciplines =>
+    context.Disciplines.Where
+    (
+        d => 
+        d.discipline_name.Contains(disciplineNameFilter) && 
+        (d.number_of_lessons == numberOfLessonsFilter || numberOfLessonsFilter == 0) &&
+        (d.discipline_id == idFilter  || idFilter == 0 )
+    );
+
     protected override void OnInitialized()
     {
         context = DbFactory.CreateDbContext();
     }
 
     public async ValueTask DisposeAsync() => await context.DisposeAsync();
+    public void ResetFilters()
+    {
+        idFilter = 0;
+        disciplineNameFilter = "";
+        numberOfLessonsFilter = 0;
+    }
 }
