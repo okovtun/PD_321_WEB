@@ -59,7 +59,11 @@
         (d.number_of_lessons == numberOfLessonsFilter || numberOfLessonsFilter == 0) &&
         (d.discipline_id == idFilter  || idFilter == 0 )
     );
-
+    IQueryable<Discipline> DisciplinesForTeacher => 
+    (
+        d =>
+        d.discipline_id == context.DTrelations.Where(dtr => dtr.teacher == )
+    );
     protected override void OnInitialized()
     {
         context = DbFactory.CreateDbContext();
