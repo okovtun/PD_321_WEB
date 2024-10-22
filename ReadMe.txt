@@ -4,6 +4,9 @@ https://www.youtube.com/playlist?list=PLeqyOOqxeiIOdpQWJH3tfE-pQUci7sYuj
 //https://ru.wikipedia.org/wiki/%D0%92%D0%B8%D1%81%D0%BE%D0%BA%D0%BE%D1%81%D0%BD%D1%8B%D0%B9_%D0%B3%D0%BE%D0%B4#:~:text=1600%20%D0%B8%202000%20%D0%B3%D0%BE%D0%B4%D1%8B%20%E2%80%94%20%D0%B2%D0%B8%D1%81%D0%BE%D0%BA%D0%BE%D1%81%D0%BD%D1%8B%D0%B5,%D0%B3%D0%BE%D0%B4%2C%20%D1%81%D0%BB%D0%B5%D0%B4%D1%83%D1%8E%D1%89%D0%B8%D0%BC%20%D0%B1%D1%83%D0%B4%D0%B5%D1%82%202028%20%D0%B3%D0%BE%D0%B4.
 
 TODO:
+Пока учим теорию.
+
+TODO:
 1. Добавить кнопку "Сбросить все фильтры";	DONE
 2. Для каждого преподавателя нужно отобразить вместо даты рождения и даты трудоустройства возраст и опыт работы;
 3. Кнопки 'Edit' и 'Delete' должны отображаться только на странице 'Details';	DONE
