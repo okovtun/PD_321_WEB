@@ -7,16 +7,20 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using ContosoUniversity.Data;
 using ContosoUniversity.Models;
+using Microsoft.Extensions.Configuration;
+using System.Configuration;
 
 namespace ContosoUniversity.Pages.Students
 {
 	public class IndexModel : PageModel
 	{
 		private readonly ContosoUniversity.Data.SchoolContext _context;
+		private readonly IConfiguration _configuration;
 
-		public IndexModel(ContosoUniversity.Data.SchoolContext context)
+		public IndexModel(ContosoUniversity.Data.SchoolContext context, IConfiguration configuration)
 		{
 			_context = context;
+			_configuration = configuration;
 		}
 		public string LastNameSort { get; set; }
 		public string FirstNameSort { get; set; }
@@ -24,13 +28,20 @@ namespace ContosoUniversity.Pages.Students
 		public string CurrentFilter { get; set; }
 		public string CurrentSort { get; set; }
 
-		public IList<Student> Students { get; set; } = default!;
+		//public IList<Student> Students { get; set; } = default!;
+		public PaginatedList<Student> Students { get; set; }
 
-		public async Task OnGetAsync(string sortOrder, string searchString)
+
+		public async Task OnGetAsync(string sortOrder, string currentFilter, string searchString, int? pageIndex)
 		{
+			CurrentSort = sortOrder;
+
 			LastNameSort = String.IsNullOrEmpty(sortOrder) ? "last_name_desc" : "";  //Descinding by Name
 			FirstNameSort = sortOrder == "first_name_asc" ? "firs_name_desc" : "first_name_asc";
 			DateSort = sortOrder == "Date" ? "date_desc" : "Date";
+
+			if(searchString != null)pageIndex = 1;
+			else searchString = currentFilter;
 
 			CurrentFilter = searchString;
 
@@ -57,7 +68,9 @@ namespace ContosoUniversity.Pages.Students
 				case "dete_desc":	students = students.OrderByDescending(s => s.EnrollmentDate);	break;
 			}
 
-			Students = await students.AsNoTracking().ToListAsync();
+			int pageSize = _configuration.GetValue("PageSize", 4);
+			Students = await PaginatedList<Student>.CreateAsync(students.AsNoTracking(), pageIndex ?? 1, pageSize);
+			//Students = await students.AsNoTracking().ToListAsync();
 		}
 	}
 }
