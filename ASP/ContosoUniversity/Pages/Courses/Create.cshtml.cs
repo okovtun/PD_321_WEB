@@ -10,36 +10,55 @@ using ContosoUniversity.Models;
 
 namespace ContosoUniversity.Pages.Courses
 {
-    public class CreateModel : PageModel
-    {
-        private readonly ContosoUniversity.Data.SchoolContext _context;
+	public class CreateModel : DepartmentNamePageModel
+	{
+		private readonly ContosoUniversity.Data.SchoolContext _context;
 
-        public CreateModel(ContosoUniversity.Data.SchoolContext context)
-        {
-            _context = context;
-        }
+		public CreateModel(ContosoUniversity.Data.SchoolContext context)
+		{
+			_context = context;
+		}
 
-        public IActionResult OnGet()
-        {
-        ViewData["DepartmentID"] = new SelectList(_context.Departments, "DepartmentID", "DepartmentID");
-            return Page();
-        }
+		public IActionResult OnGet()
+		{
+			PopulateDepartmentDropdownList(_context);
+			//ViewData["DepartmentID"] = new SelectList(_context.Departments, "DepartmentID", "DepartmentID");
+			return Page();
+		}
 
-        [BindProperty]
-        public Course Course { get; set; } = default!;
+		[BindProperty]
+		public Course Course { get; set; } = default!;
 
-        // For more information, see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync()
-        {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
+		// For more information, see https://aka.ms/RazorPagesCRUD.
+		public async Task<IActionResult> OnPostAsync()
+		{
+			Course emptyCourse = new Course();
 
-            _context.Courses.Add(Course);
-            await _context.SaveChangesAsync();
+			if (await TryUpdateModelAsync<Course>
+				(
+					emptyCourse,
+					"course",
+					s => s.CourseId, s => s.DepartmentID, s => s.Title, s => s.Credits
+				)
+			  )
+			{
+				_context.Courses.Add(emptyCourse);
+				await _context.SaveChangesAsync();
+				return RedirectToPage("./Index");
+			}
 
-            return RedirectToPage("./Index");
-        }
-    }
+			PopulateDepartmentDropdownList(_context, emptyCourse.DepartmentID);
+			return Page();
+
+			//if (!ModelState.IsValid)
+			//{
+			//	return Page();
+			//}
+
+			//_context.Courses.Add(Course);
+			//await _context.SaveChangesAsync();
+
+			//return RedirectToPage("./Index");
+		}
+	}
 }
