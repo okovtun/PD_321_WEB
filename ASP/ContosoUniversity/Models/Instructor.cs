@@ -18,7 +18,7 @@ namespace ContosoUniversity.Models
 		[Required]
 		[Display(Name = "Имя")]
 		[StringLength(50)]
-		[RegularExpression("^[A-ZА-Я][a-zа-я]")]
+		[RegularExpression("^[A-ZА-Я][a-zа-я]*$")]
 		public string FirstMidName { get; set; }
 
 		[Display(Name = "Дата трудоустройства")]
