@@ -21,7 +21,7 @@ namespace ContosoUniversity.Pages.Instructors
 		}
 
 		[BindProperty]
-		public Instructor Instructor { get; set; } = default!;
+		public Instructor Instructor { get; set; }
 
 		public async Task<IActionResult> OnGetAsync(int? id)
 		{
@@ -33,7 +33,7 @@ namespace ContosoUniversity.Pages.Instructors
 				.AsNoTracking()
 				.FirstOrDefaultAsync(m => m.ID == id);
 
-			if (instructor == null)return NotFound();
+			if (instructor == null) return NotFound();
 			Instructor = instructor;
 			PopulateAssignedCourseData(_context, Instructor);
 			return Page();
@@ -75,8 +75,8 @@ namespace ContosoUniversity.Pages.Instructors
 
 			Instructor instructorToUpdate = await _context.Instructors
 				.Include(i => i.OfficeAssignment)
-				.Include (i => i.Courses)
-				.FirstOrDefaultAsync (m => m.ID == id);
+				.Include(i => i.Courses)
+				.FirstOrDefaultAsync(m => m.ID == id);
 			if (instructorToUpdate == null) return NotFound();
 
 			if
@@ -91,8 +91,8 @@ namespace ContosoUniversity.Pages.Instructors
 					i => i.OfficeAssignment
 				)
 			)
-			{ 
-				if(String.IsNullOrWhiteSpace(instructorToUpdate.OfficeAssignment?.Location))
+			{
+				if (String.IsNullOrWhiteSpace(instructorToUpdate.OfficeAssignment?.Location))
 					instructorToUpdate.OfficeAssignment = null;
 
 				UpdateInstructorCourses(selectedCourses, instructorToUpdate);
@@ -100,7 +100,7 @@ namespace ContosoUniversity.Pages.Instructors
 				return RedirectToPage("./Index");
 			}
 
-			UpdateInstructorCourses (selectedCourses, instructorToUpdate);
+			UpdateInstructorCourses(selectedCourses, instructorToUpdate);
 			PopulateAssignedCourseData(_context, instructorToUpdate);
 			return Page();
 		}
@@ -118,23 +118,25 @@ namespace ContosoUniversity.Pages.Instructors
 
 			foreach (Course course in _context.Courses)
 			{
-				if (selectedCoursesHS.Contains(course.CourseId.ToString()) && !instructorCoursesHS.Contains(course.CourseId))
+				if (selectedCoursesHS.Contains(course.CourseId.ToString()))
 				{
-					instructorToUpdate.Courses.Add(course);
+					if (!instructorCoursesHS.Contains(course.CourseId))
+						instructorToUpdate.Courses.Add(course);
 				}
 				else
 				{
 					if (instructorCoursesHS.Contains(course.CourseId))
-						instructorToUpdate.Courses.Remove(
-							instructorToUpdate.Courses.Single(c => c.CourseId == course.CourseId)
-							);
+					{
+						//Course courseToRemove = ;
+						instructorToUpdate.Courses.Remove(instructorToUpdate.Courses.Single(c => c.CourseId == course.CourseId));
+					}
 				}
 			}
 		}
 
-		private bool InstructorExists(int id)
-		{
-			return _context.Instructors.Any(e => e.ID == id);
-		}
+		//private bool InstructorExists(int id)
+		//{
+		//	return _context.Instructors.Any(e => e.ID == id);
+		//}
 	}
 }

@@ -10,7 +10,7 @@
 <h4>Instructor</h4>
 <hr />
 <div class="row">
-	<div class="col-md-4">
+	<div class="col-md-10">
 		<form method="post">
 			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
 			<input type="hidden" asp-for="Instructor.ID" />
@@ -46,10 +46,10 @@
 									{
 										@:</tr><tr>
 									}
-									@:<td>
+									@:<td style="width:50%">
 										<input	type="checkbox" 
 												name="selectedCourses" 
-												value="course.CourseID"
+												value="@course.CourseID"
 												@Html.Raw(course.Assigned ? "checked=\"checked\"" : "")
 										/>
 										@course.CourseID @: @course.Title
