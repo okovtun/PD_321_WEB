@@ -1,0 +1,44 @@
+﻿@model PD_212_MVC.Models.Direction
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Direction</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.direction_name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.direction_name)
+        </dd>
+
+        <dt class = "col-sm-2">
+            Количество групп:
+            @* @Html.Display("Количество групп:") *@
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Groups!.Count)
+        </dd>
+
+        <dt class = "col-sm-2">
+            Количество студентов:
+            @* @Html.Display("Количество групп:") *@
+        </dt>
+        <dd class = "col-sm-10">
+            @* @Html.DisplayFor(
+                model => model.Groups!.Sum(g => g.Students!.Count)) *@
+                @Model.Groups!.Sum(g => g.Students!.Count)
+        </dd>
+
+
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.direction_id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

@@ -1,0 +1,35 @@
+﻿@model IEnumerable<PD_212_MVC.Models.Direction>
+
+@{
+    ViewData["Title"] = "Directions";
+}
+
+<h1>Directions</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.direction_name)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.direction_name)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.direction_id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.direction_id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.direction_id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
