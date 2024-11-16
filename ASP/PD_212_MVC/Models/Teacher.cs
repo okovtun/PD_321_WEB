@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace PD_212_MVC.Models
@@ -26,5 +27,9 @@ namespace PD_212_MVC.Models
 
 		//Navigation properties:
 		public ICollection<TeachersDisciplinesRelation>? Disciplines { get; set; }
+		//public IEnumerable<Microsoft.AspNetCore.Mvc.Rendering.SelectList>? DisciplinesToEnum 
+		//{
+		//	get => new SelectList(Microsoft.AspNetCore.Mvc.Rendering.SelectList(Disciplines));
+		//}
 	}
 }

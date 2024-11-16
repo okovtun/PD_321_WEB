@@ -52,3 +52,33 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+
+@if (Model.Disciplines != null)
+{
+    <div>
+        <h3>Преподаватель может вести следующие дисциплины (@Model.Disciplines.Count())</h3>
+        <table class="table">
+            <tr>
+                <th>ID</th>
+                <th>Дисциплина</th>
+                <th>Кол-во занятий</th>
+            </tr>
+            @foreach (TeachersDisciplinesRelation d in Model.Disciplines)
+            {
+                <tr>
+                    <td>@d.Discipline.discipline_id</td>
+                    <td>@d.Discipline.discipline_name</td>
+                    <td>@d.Discipline.number_of_lessons</td>
+                </tr>
+            }
+        </table>
+    </div>
+}
+
+<div class="form-group">
+    <label asp-for="teacher_id" class="control-label">Добавить дисциплину</label>
+    <div style="display:flex;justify-content:left">
+        <select asp-for="teacher_id" class="form-control" asp-items="ViewBag.Disciplines" style="width:90%"></select>
+        <input type="submit" value="Добавить" class="btn btn-primary" style="width:10%" />
+    </div>
+</div>
