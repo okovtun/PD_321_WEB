@@ -24,7 +24,7 @@ namespace PD_212_MVC.Views.Teachers
 		public async Task<IActionResult> Index(string sortOrder, string searchString)
 		{
 			ViewData["LastNameSortParam"] = String.IsNullOrEmpty(sortOrder) ? "last_name_desc" : "";
-			ViewData["FirstNameSortParam"] =  sortOrder == "FirstName" ? "first_name_desc" : "FirstName";
+			ViewData["FirstNameSortParam"] = sortOrder == "FirstName" ? "first_name_desc" : "FirstName";
 			ViewData["MiddleNameSortParam"] = sortOrder == "MiddleName" ? "middle_name_desc" : "MiddleName";
 			ViewData["BirthDateSortParam"] = sortOrder == "BirthDate" ? "birth_date_desc" : "BirthDate";
 			ViewData["WorkDateSortParam"] = sortOrder == "WorkDate" ? "work_date_desc" : "WorkDate";
@@ -40,16 +40,16 @@ namespace PD_212_MVC.Views.Teachers
 
 			switch (sortOrder)
 			{
-				default:				teachers = teachers.OrderBy(t => t.last_name);				break;
-				case "last_name_desc":	teachers = teachers.OrderByDescending(t => t.last_name);	break;
-				case "FirstName":		teachers = teachers.OrderBy(t => t.first_name);				break;
-				case "first_name_desc":	teachers = teachers.OrderByDescending(t => t.first_name);	break;
-				case "MiddleName":		teachers = teachers.OrderBy(t => t.middle_name);			break;
-				case "middle_name_desc":teachers = teachers.OrderByDescending(t => t.middle_name);	break;
-				case "WorkDate":		teachers = teachers.OrderBy(t => t.work_since);				break;
-				case "work_date_desc":	teachers = teachers.OrderByDescending(t => t.work_since);	break;
-				case "BirthDate":		teachers = teachers.OrderBy(t => t.birth_date);				break;
-				case "birth_date_desc":	teachers = teachers.OrderByDescending(t => t.birth_date);	break;
+				default: teachers = teachers.OrderBy(t => t.last_name); break;
+				case "last_name_desc": teachers = teachers.OrderByDescending(t => t.last_name); break;
+				case "FirstName": teachers = teachers.OrderBy(t => t.first_name); break;
+				case "first_name_desc": teachers = teachers.OrderByDescending(t => t.first_name); break;
+				case "MiddleName": teachers = teachers.OrderBy(t => t.middle_name); break;
+				case "middle_name_desc": teachers = teachers.OrderByDescending(t => t.middle_name); break;
+				case "WorkDate": teachers = teachers.OrderBy(t => t.work_since); break;
+				case "work_date_desc": teachers = teachers.OrderByDescending(t => t.work_since); break;
+				case "BirthDate": teachers = teachers.OrderBy(t => t.birth_date); break;
+				case "birth_date_desc": teachers = teachers.OrderByDescending(t => t.birth_date); break;
 			}
 
 			return View(await teachers.AsNoTracking().ToListAsync());
@@ -108,11 +108,11 @@ namespace PD_212_MVC.Views.Teachers
 
 			//var teacher = await _context.Teachers.FindAsync(id);
 			var teacher = await _context.Teachers
-				.Include (t => t.Disciplines!)
-				.ThenInclude (d => d.Discipline)
+				.Include(t => t.Disciplines!)
+				.ThenInclude(d => d.Discipline)
 				.FirstOrDefaultAsync(m => m.teacher_id == id);
 
-			var disciplines = await _context.Disciplines.ToListAsync();
+			List<Discipline> disciplines = await _context.Disciplines.ToListAsync();
 			ViewData["Disciplines"] = new SelectList(disciplines, "discipline_id", "discipline_name");
 
 			if (teacher == null)
@@ -157,6 +157,22 @@ namespace PD_212_MVC.Views.Teachers
 				//return RedirectToAction(nameof(Index));
 			}
 			return View(teacher);
+		}
+		public void AddDiscipline(int? teacher, int? discipline)
+		{
+			int? teacher_id = teacher;
+			int? discipline_id = discipline;
+			//Teacher update = teacher;
+			//Teacher teacher = _context.Teachers.Find(id);
+			//if (discipline == null)
+			//{ 
+			//	//teacher.Disciplines = new List<TeachersDisciplinesRelation>();
+			//	return;
+			//}
+			//teacher.Disciplines.Add
+			//	(
+			//	new TeachersDisciplinesRelation { teacher = teacher.teacher_id, discipline = discipline.discipline_id }
+			//	);
 		}
 
 		// GET: Teachers/Delete/5

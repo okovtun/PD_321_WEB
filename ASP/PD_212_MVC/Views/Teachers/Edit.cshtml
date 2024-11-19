@@ -1,7 +1,7 @@
 ﻿@model PD_212_MVC.Models.Teacher
 
 @{
-    ViewData["Title"] = "Edit";
+	ViewData["Title"] = "Edit";
 }
 
 <h1>Edit</h1>
@@ -9,76 +9,81 @@
 <h4>Teacher</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="teacher_id" />
-            <div class="form-group">
-                <label asp-for="last_name" class="control-label"></label>
-                <input asp-for="last_name" class="form-control" />
-                <span asp-validation-for="last_name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="first_name" class="control-label"></label>
-                <input asp-for="first_name" class="form-control" />
-                <span asp-validation-for="first_name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="middle_name" class="control-label"></label>
-                <input asp-for="middle_name" class="form-control" />
-                <span asp-validation-for="middle_name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="birth_date" class="control-label"></label>
-                <input asp-for="birth_date" class="form-control" />
-                <span asp-validation-for="birth_date" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="work_since" class="control-label"></label>
-                <input asp-for="work_since" class="form-control" />
-                <span asp-validation-for="work_since" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
+	<div class="col-md-4">
+		<form asp-action="Edit">
+			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+			<input type="hidden" asp-for="teacher_id" />
+			<div class="form-group">
+				<label asp-for="last_name" class="control-label"></label>
+				<input asp-for="last_name" class="form-control" />
+				<span asp-validation-for="last_name" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="first_name" class="control-label"></label>
+				<input asp-for="first_name" class="form-control" />
+				<span asp-validation-for="first_name" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="middle_name" class="control-label"></label>
+				<input asp-for="middle_name" class="form-control" />
+				<span asp-validation-for="middle_name" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="birth_date" class="control-label"></label>
+				<input asp-for="birth_date" class="form-control" />
+				<span asp-validation-for="birth_date" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="work_since" class="control-label"></label>
+				<input asp-for="work_since" class="form-control" />
+				<span asp-validation-for="work_since" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<input type="submit" value="Save" class="btn btn-primary" />
+			</div>
+		</form>
+	</div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+	<a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+	}
 }
 
 @if (Model.Disciplines != null)
 {
-    <div>
-        <h3>Преподаватель может вести следующие дисциплины (@Model.Disciplines.Count())</h3>
-        <table class="table">
-            <tr>
-                <th>ID</th>
-                <th>Дисциплина</th>
-                <th>Кол-во занятий</th>
-            </tr>
-            @foreach (TeachersDisciplinesRelation d in Model.Disciplines)
-            {
-                <tr>
-                    <td>@d.Discipline.discipline_id</td>
-                    <td>@d.Discipline.discipline_name</td>
-                    <td>@d.Discipline.number_of_lessons</td>
-                </tr>
-            }
-        </table>
-    </div>
+	<div>
+		<h3>Преподаватель может вести следующие дисциплины (@Model.Disciplines.Count())</h3>
+		<table class="table">
+			<tr>
+				<th>ID</th>
+				<th>Дисциплина</th>
+				<th>Кол-во занятий</th>
+			</tr>
+			@foreach (TeachersDisciplinesRelation d in Model.Disciplines)
+			{
+				<tr>
+					<td>@d.Discipline.discipline_id</td>
+					<td>@d.Discipline.discipline_name</td>
+					<td>@d.Discipline.number_of_lessons</td>
+				</tr>
+			}
+		</table>
+	</div>
 }
 
 <div class="form-group">
-    <label asp-for="teacher_id" class="control-label">Добавить дисциплину</label>
-    <div style="display:flex;justify-content:left">
-        <select asp-for="teacher_id" class="form-control" asp-items="ViewBag.Disciplines" style="width:90%"></select>
-        <input type="submit" value="Добавить" class="btn btn-primary" style="width:10%" />
-    </div>
+	<form asp-action="AddDiscipline">
+		<div style="display:flex;justify-content:left">
+			<input name="teacher" type="hidden" asp-for="teacher_id" />
+			@* <label name="teacher" asp-for="teacher_id" class="control-label">Добавить дисциплину</label> *@
+			<select name="discipline" class="form-control" asp-items="ViewBag.Disciplines" style="width:90%"></select>
+			<input type="submit" value="Добавить" class="btn btn-primary" style="width:10%" />
+		</div>
+	</form>
 </div>
