@@ -80,9 +80,9 @@
 <div class="form-group">
 	<form asp-action="AddDiscipline">
 		<div style="display:flex;justify-content:left">
-			<input name="teacher" type="hidden" asp-for="teacher_id" />
+			<input name="teacher_id" type="hidden" asp-for="teacher_id" />
 			@* <label name="teacher" asp-for="teacher_id" class="control-label">Добавить дисциплину</label> *@
-			<select name="discipline" class="form-control" asp-items="ViewBag.Disciplines" style="width:90%"></select>
+			<select name="discipline_id" class="form-control" asp-items="ViewBag.Disciplines" style="width:90%"></select>
 			<input type="submit" value="Добавить" class="btn btn-primary" style="width:10%" />
 		</div>
 	</form>

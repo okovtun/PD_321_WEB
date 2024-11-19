@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using NuGet.DependencyResolver;
 using PD_212_MVC.Data;
 using PD_212_MVC.Models;
 
@@ -158,10 +159,41 @@ namespace PD_212_MVC.Views.Teachers
 			}
 			return View(teacher);
 		}
-		public void AddDiscipline(int? teacher, int? discipline)
+		public async Task<IActionResult> AddDiscipline(int? teacher_id, short? discipline_id)
 		{
-			int? teacher_id = teacher;
-			int? discipline_id = discipline;
+			//int? teacher_id = teacher;
+			//int? discipline_id = discipline;
+
+			//Teacher teacher = await _context.Teachers
+			//	.Include(t => t.Disciplines)
+			//	.FirstOrDefaultAsync(m => m.teacher_id == teacher_id);
+			Teacher teacher = await _context.Teachers
+				.Include(t => t.Disciplines!)
+				.ThenInclude(d => d.Discipline)
+				.FirstOrDefaultAsync(m => m.teacher_id == teacher_id);
+			//List<Discipline> disciplines = _context.Disciplines.ToList();
+			if (teacher == null) 
+				return NotFound();
+
+			TeachersDisciplinesRelation disciplineToAdd = new TeachersDisciplinesRelation();
+			disciplineToAdd.discipline = (short)discipline_id;
+			disciplineToAdd.teacher = (int)teacher_id;
+			disciplineToAdd.Discipline = await _context.Disciplines
+				.FirstOrDefaultAsync(d => d.discipline_id == discipline_id);
+			disciplineToAdd.Teacher = teacher;
+
+			teacher.Disciplines.Add(disciplineToAdd);
+			//teacher.Disciplines.Add(
+			//	new TeachersDisciplinesRelation
+			//	{
+			//		teacher = teacher.teacher_id,
+			//		discipline = (short)discipline_id
+			//	}
+			//	);
+
+			return View(teacher);
+			//return RedirectToPage("./Details", teacher.teacher_id);
+
 			//Teacher update = teacher;
 			//Teacher teacher = _context.Teachers.Find(id);
 			//if (discipline == null)
