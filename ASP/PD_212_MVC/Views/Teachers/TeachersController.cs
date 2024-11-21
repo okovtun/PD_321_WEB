@@ -189,8 +189,23 @@ namespace PD_212_MVC.Views.Teachers
 				.FirstOrDefaultAsync(d => d.discipline_id == discipline_id);
 			disciplineToAdd.Teacher = teacher;
 
-			if (!(teacher.Disciplines!.Contains(disciplineToAdd)))
-				teacher.Disciplines.Add(disciplineToAdd);
+			//bool exist = false;
+			//foreach (TeachersDisciplinesRelation i in teacher.Disciplines)
+			//{
+			//	if (i == disciplineToAdd)
+			//	{
+			//		exist = true;
+			//		break;
+			//	}
+			//}
+			//if (!(exist))
+			//	teacher.Disciplines.Add(disciplineToAdd);
+
+			if (teacher.Disciplines.Any(td => td.discipline == disciplineToAdd.discipline))
+			{
+				//ModelState.AddModelError("", "Такая дисциплина уже есть");
+				return RedirectToAction(nameof(Edit), new { id = teacher_id});
+			}
 
 			if (ModelState.IsValid)
 			{
