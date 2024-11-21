@@ -16,6 +16,5 @@ namespace PD_212_MVC.Models
 		//Navigation properties:
 		public Teacher Teacher { get; set; }
 		public Discipline Discipline { get; set; }
-
 	}
 }

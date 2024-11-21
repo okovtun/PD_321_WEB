@@ -12,6 +12,6 @@ namespace PD_212_MVC.Models
 		public byte number_of_lessons { get; set; }
 
 		//Navigation properties:
-
+		public ICollection<TeachersDisciplinesRelation>? Teachers { get; set; }
 	}
 }

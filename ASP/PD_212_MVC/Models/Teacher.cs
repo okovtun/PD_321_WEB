@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PD_212_MVC.Models
 {
@@ -31,5 +32,8 @@ namespace PD_212_MVC.Models
 		//{
 		//	get => new SelectList(Microsoft.AspNetCore.Mvc.Rendering.SelectList(Disciplines));
 		//}
+		//[NotMapped]
+		//public HashSet<Discipline>? DisciplinesHS { get; set; }
+
 	}
 }

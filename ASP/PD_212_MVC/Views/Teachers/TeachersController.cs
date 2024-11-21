@@ -172,8 +172,15 @@ namespace PD_212_MVC.Views.Teachers
 				.ThenInclude(d => d.Discipline)
 				.FirstOrDefaultAsync(m => m.teacher_id == teacher_id);
 			//List<Discipline> disciplines = _context.Disciplines.ToList();
-			if (teacher == null) 
+			if (teacher == null)
 				return NotFound();
+
+			//////////////////////////////////////////////////////////////
+
+			//DbSet<TeachersDisciplinesRelation> realtions = _context.TeachersDisciplinesRelation;
+			//HashSet<short> teachersDisciplines = new HashSet<short>(teacher.Disciplines.Select(d => d.discipline));
+
+			//////////////////////////////////////////////////////////////
 
 			TeachersDisciplinesRelation disciplineToAdd = new TeachersDisciplinesRelation();
 			disciplineToAdd.discipline = (short)discipline_id;
@@ -182,7 +189,22 @@ namespace PD_212_MVC.Views.Teachers
 				.FirstOrDefaultAsync(d => d.discipline_id == discipline_id);
 			disciplineToAdd.Teacher = teacher;
 
-			teacher.Disciplines.Add(disciplineToAdd);
+			if (!(teacher.Disciplines!.Contains(disciplineToAdd)))
+				teacher.Disciplines.Add(disciplineToAdd);
+
+			if (ModelState.IsValid)
+			{
+				try
+				{
+					_context.Update(teacher);
+					await _context.SaveChangesAsync();
+				}
+				catch (DbUpdateConcurrencyException)
+				{
+					if (!TeacherExists(teacher.teacher_id)) return NotFound();
+					else throw;
+				}
+			}
 			//teacher.Disciplines.Add(
 			//	new TeachersDisciplinesRelation
 			//	{
