@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using PD_212_MVC.Data;
 var builder = WebApplication.CreateBuilder(args);
+
 builder.Services.AddDbContext<AcademyContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("AcademyContext") ?? throw new InvalidOperationException("Connection string 'AcademyContext' not found.")));
 
