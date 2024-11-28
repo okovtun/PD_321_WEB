@@ -3,6 +3,11 @@ https://www.youtube.com/playlist?list=PLeqyOOqxeiIOdpQWJH3tfE-pQUci7sYuj
 //https://www.google.com/search?q=%D0%95%D1%81%D1%82%D1%8C+%D0%BB%D0%B8+29+%D1%84%D0%B5%D0%B2%D1%80%D0%B0%D0%BB%D1%8F+%D0%B2+2100+%D0%B3%D0%BE%D0%B4%D1%83&rlz=1C1FKPE_enGE1117GE1117&oq=%D0%95%D1%81%D1%82%D1%8C+%D0%BB%D0%B8+29+%D1%84%D0%B5%D0%B2%D1%80%D0%B0%D0%BB%D1%8F+%D0%B2+2100+%D0%B3%D0%BE%D0%B4%D1%83&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIHCAEQIRigAdIBCTE1NTg4ajFqN6gCALACAA&sourceid=chrome&ie=UTF-8
 //https://ru.wikipedia.org/wiki/%D0%92%D0%B8%D1%81%D0%BE%D0%BA%D0%BE%D1%81%D0%BD%D1%8B%D0%B9_%D0%B3%D0%BE%D0%B4#:~:text=1600%20%D0%B8%202000%20%D0%B3%D0%BE%D0%B4%D1%8B%20%E2%80%94%20%D0%B2%D0%B8%D1%81%D0%BE%D0%BA%D0%BE%D1%81%D0%BD%D1%8B%D0%B5,%D0%B3%D0%BE%D0%B4%2C%20%D1%81%D0%BB%D0%B5%D0%B4%D1%83%D1%8E%D1%89%D0%B8%D0%BC%20%D0%B1%D1%83%D0%B4%D0%B5%D1%82%202028%20%D0%B3%D0%BE%D0%B4.
 
+TODO:
+Вынести <header>...</header> в компонент 'Header'.
+
+----------------------------------------------------------------
+
 VDS
 
 TODO:
