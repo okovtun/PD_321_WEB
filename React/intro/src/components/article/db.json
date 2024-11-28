@@ -1,0 +1,63 @@
+{
+  "people": [
+    {
+      "name": "John",
+      "surname": "Smith",
+      "pol": "male",
+      "age": 46,
+      "photo": "https://images.unsplash.com/photo-1599589312087-9aaa2d6e37d3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjAxfHxmYWNlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60"
+    },
+    {
+      "name": "Angela",
+      "surname": "Whinston",
+      "pol": "female",
+      "age": 31,
+      "photo": "https://images.unsplash.com/photo-1618835962148-cf177563c6c0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzV8fGZhY2V8ZW58MHx8MHx8&auto=format&fit=crop&w=400&q=60"
+    },
+    {
+      "name": "Alex",
+      "surname": "Solberry",
+      "pol": "male",
+      "age": 35,
+      "photo": "https://images.unsplash.com/photo-1622559924472-2c2f69abb854?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OTJ8fGZhY2V8ZW58MHx8MHx8&auto=format&fit=crop&w=400&q=60"
+    },
+    {
+      "name": "Anna",
+      "surname": "Rayan",
+      "pol": "female",
+      "age": 33,
+      "photo": "https://images.unsplash.com/photo-1484608856193-968d2be4080e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjc3fHxmYWNlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60"
+    },
+    {
+      "name": "Michael",
+      "surname": "Dobkin",
+      "pol": "male",
+      "age": 30,
+      "photo": "https://images.unsplash.com/photo-1612213467906-20440d15bdb8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OTV8fGZhY2V8ZW58MHx8MHx8&auto=format&fit=crop&w=400&q=60"
+    }
+	,
+    {
+      "name": "Marina",
+      "surname": "Bartley",
+      "pol": "female",
+      "age": 23,
+      "photo": "https://images.unsplash.com/photo-1531908012224-8f8865e79a96?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjYwfHxmYWNlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60"
+    }
+	,
+    {
+      "name": "Amanda",
+      "surname": "Dixon",
+      "pol": "female",
+      "age": 23,
+      "photo": "https://images.unsplash.com/photo-1602481182506-6e15d0d2e44b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTB8fGZhY2V8ZW58MHx8MHx8&auto=format&fit=crop&w=400&q=60"
+    }
+	,
+    {
+      "name": "Billy",
+      "surname": "Rosen",
+      "pol": "male",
+      "age": 30,
+      "photo": "https://images.unsplash.com/photo-1595152452543-e5fc28ebc2b8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjE2fHxmYWNlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60"
+    }
+  ]
+}
