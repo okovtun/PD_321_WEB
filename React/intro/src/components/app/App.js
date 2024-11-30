@@ -3,6 +3,7 @@ import './App.css';
 import Header from '../header/Header';
 import Nav from '../nav/Nav'
 import Power from '../power/Power';
+import Switch from '../switch/Switch';
 import Article from '../article/Article';
 import Footer from '../footer/Footer';
 import data from '../article/db.json';
@@ -24,9 +25,10 @@ function App() {
     <div className="App">
       <Header title="Hello React" description="This is my first React App. This phrase passed using parameters over 'PROPS'" />
       <Nav navigation={nav} />
+      <Switch />
       <Power a={2} n={8} />
       <Article db={db}/>
-      <Footer />
+      <Footer year="2024" />
     </div>
   );
 }
