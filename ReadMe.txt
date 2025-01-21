@@ -3,9 +3,70 @@ https://www.youtube.com/playlist?list=PLeqyOOqxeiIOdpQWJH3tfE-pQUci7sYuj
 //https://www.google.com/search?q=%D0%95%D1%81%D1%82%D1%8C+%D0%BB%D0%B8+29+%D1%84%D0%B5%D0%B2%D1%80%D0%B0%D0%BB%D1%8F+%D0%B2+2100+%D0%B3%D0%BE%D0%B4%D1%83&rlz=1C1FKPE_enGE1117GE1117&oq=%D0%95%D1%81%D1%82%D1%8C+%D0%BB%D0%B8+29+%D1%84%D0%B5%D0%B2%D1%80%D0%B0%D0%BB%D1%8F+%D0%B2+2100+%D0%B3%D0%BE%D0%B4%D1%83&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIHCAEQIRigAdIBCTE1NTg4ajFqN6gCALACAA&sourceid=chrome&ie=UTF-8
 //https://ru.wikipedia.org/wiki/%D0%92%D0%B8%D1%81%D0%BE%D0%BA%D0%BE%D1%81%D0%BD%D1%8B%D0%B9_%D0%B3%D0%BE%D0%B4#:~:text=1600%20%D0%B8%202000%20%D0%B3%D0%BE%D0%B4%D1%8B%20%E2%80%94%20%D0%B2%D0%B8%D1%81%D0%BE%D0%BA%D0%BE%D1%81%D0%BD%D1%8B%D0%B5,%D0%B3%D0%BE%D0%B4%2C%20%D1%81%D0%BB%D0%B5%D0%B4%D1%83%D1%8E%D1%89%D0%B8%D0%BC%20%D0%B1%D1%83%D0%B4%D0%B5%D1%82%202028%20%D0%B3%D0%BE%D0%B4.
 
+URI:
+https://developer.mozilla.org/ru/docs/Web/URI
+
+PHP configuration:
+https://www.php.net/manual/en/install.windows.iis.php
+https://learn.microsoft.com/en-us/iis/configuration/system.webserver/fastcgi/
+
 TODO:
+1. Создать массив из пяти элементов, и произвести над ним следующие дкйствия:
+	-заполнить случайными числами;
+	-найти сумму и среднее-арифметическое элементов массива;
+	-найти минимальное и максимальное значение в массиве;
+2. Есть массив из лесяти элементов, заполненный слечайными числами в диапазоне от 25 до 30.
+   Необходимо найти поторяющиеся значения в этом массиве, вывести их на экран, 
+   и вывести на экран количество повторений каждого значения;
+3. При решить все эти задачи еще и с двумерными массивами;
+
+DONE:
+1. Почему функции НЕ поддерживают перегрузку;
+2. Написать рекурсивную функцию Fibonacci(), которая выводит на экран ряд Фибоначчи, до определенного предела;
+3. Написать функцию dec_to_bin(), которая принимает десятичное число, и возвращает его двоичный аналог;
+4. Написать функцию dec_to_hex(), которая принимает десятиное число, и возвращает его шестнадцатеричный аналог;
+
+DONE:
+1. Найти константы, показывающие минимальное и максимальное значение для FLOAT;
+
+DONE:
+Скачать PHP binaries;
+
+Introduction to Cloud Computing:
+Ознакомиться с продуктами Azure и их ценообразованем.
+https://hip.hosting/
+https://nuxt.cloud/virtual-servers
+
+ReactLifeCycle:
+https://stackoverflow.com/questions/62185425/why-is-console-log-logging-twice-in-react-js
+https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
+https://react.dev/learn/react-developer-tools
+
+https://stackoverflow.com/questions/71835697/create-react-app-dependency-version-issues-with-react-18
+
+TODO:
+Обеспечить возможность выбирать тест: HardwarePC, Основы программирования, ООП, и т.д.
+Сделайте несколько тестов по 3-4 вопроса, и при запуске страницы пользователь должен выбрать, что он хочет сдавать.
+
+DONE:
+1. Отобразить количество верных и неверных ответов пользователя;
+
+DONE:
+Добить Tasklist
+
+DONE:
+Добить 'Pagination' при помощи 'PROPS'.
+
+DONE:
+Добить Pagination.
+
+DONE:
+Реализовать конвертор чисел из двоичной СС в Десятичную и Шестнадцатеричную; 
+
+DONE:
 Создать отдельный репозиторий для Галлереи и захостить эту 
 Галерею на GitHub таким образом, чтобы она открывалась в браузере прямо из GitHub;
+https://create-react-app.dev/docs/deployment/
 
 DONE:
 Написать компоненты которые:
