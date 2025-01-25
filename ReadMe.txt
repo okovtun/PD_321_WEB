@@ -10,7 +10,16 @@ PHP configuration:
 https://www.php.net/manual/en/install.windows.iis.php
 https://learn.microsoft.com/en-us/iis/configuration/system.webserver/fastcgi/
 
-TODO:
+TOREAD:
+https://www.rfc-editor.org/rfc/rfc1945
+https://datatracker.ietf.org/doc/html/rfc1945
+
+PHP Arrays:
+https://www.php.net/manual/en/ref.array.php
+
+Товарищи, пока отдыхаем, задание будет на следующем занятии, на сегодняшнюю домашку прикрепите предыдущую.
+
+DONE:
 1. Создать массив из пяти элементов, и произвести над ним следующие дкйствия:
 	-заполнить случайными числами;
 	-найти сумму и среднее-арифметическое элементов массива;

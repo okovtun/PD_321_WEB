@@ -1,15 +1,24 @@
-<?PHP
+ï»¿<?PHP
 
 $title = 'Arrays';
 
 $array=[0, 1, 1, 2, 3, 5, 8];
 $array0 = [];
-$array1 = array(3,5,8,13.21);	//Îáúÿâëåíèå ìàññèâà ÷åðåç ÿâíûé âûçîâ êîíñòðóêòîðà
-$array2 = [34,55,89,144];		//Îáúÿâëåíèå ìàññèâà ÷åðåç íåÿâíûé âûçîâ êîíñòðóêòîðà
+$array1 = array(3,5,8,13.21, 34.55);	//ÐžÐ±ÑŠÑÐ²Ð»ÐµÐ½Ð¸Ðµ Ð¼Ð°ÑÑÐ¸Ð²Ð° Ñ‡ÐµÑ€ÐµÐ· ÑÐ²Ð½Ñ‹Ð¹ Ð²Ñ‹Ð·Ð¾Ð² ÐºÐ¾Ð½ÑÑ‚Ñ€ÑƒÐºÑ‚Ð¾Ñ€Ð°
+$array2 = [34,55,89,144];		//ÐžÐ±ÑŠÑÐ²Ð»ÐµÐ½Ð¸Ðµ Ð¼Ð°ÑÑÐ¸Ð²Ð° Ñ‡ÐµÑ€ÐµÐ· Ð½ÐµÑÐ²Ð½Ñ‹Ð¹ Ð²Ñ‹Ð·Ð¾Ð² ÐºÐ¾Ð½ÑÑ‚Ñ€ÑƒÐºÑ‚Ð¾Ñ€Ð°
 
-$distance_to_sun['Mercury'] = 46000000;
-$distance_to_sun['Venus'] = 108000000;
-$distance_to_sun['Earth'] = 149000000;
+//$distance_to_sun['Mercury'] = 46000000;
+//$distance_to_sun['Venus'] = 108000000;
+//$distance_to_sun['Earth'] = 149000000;
+$distance_to_sun = 
+[
+	'Mercury'	=>	46000000,
+	'Venus'		=>	108000000,
+	'Earth'		=>	149000000,
+	'Mars'		=>	249000000,
+	'Jupiter'	=>	777000000,
+	'Saturn'	=>	1430000000,
+];
 
 $array2D = 
 [
@@ -17,5 +26,21 @@ $array2D =
 	[3,5,8,13,21],
 	[34,55,89]
 ];
+
+function print_array($array)
+{
+	echo '<pre>';
+	//for($i=0;$i<count($array); $i++)
+		//echo "$array[$i]\t";
+	foreach($array as $iterator)
+		echo "$iterator\t";
+	echo '</pre>';
+}
+function print_array_pre($array)
+{
+	echo '<pre>';
+	print_r($array);
+	echo '</pre>';
+}
 
 require 'index.view.php';
