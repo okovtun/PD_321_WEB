@@ -1,0 +1,6 @@
+<form action="script.php" method="">
+</form>
+
+method:
+	get - передает данные в адресной строке
+	post- передает данные в HTTP-header

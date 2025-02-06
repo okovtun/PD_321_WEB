@@ -14,10 +14,19 @@ TOREAD:
 https://www.rfc-editor.org/rfc/rfc1945
 https://datatracker.ietf.org/doc/html/rfc1945
 
+TODO:
+1. Оганичить доступ в папку 'inc';
+2. Написать тест на 5 вопросов. В начале теста пользователь вводит свое имя и E-mail;
+
+DONE:
+Добить проверку имени на форме регистрации.
+
+Товарищи, посмотрите еще эту RFC:https://datatracker.ietf.org/doc/html/rfc6265
+
 PHP Arrays:
 https://www.php.net/manual/en/ref.array.php
+https://www.deepl.com/en/translator
 
-Товарищи, пока отдыхаем, задание будет на следующем занятии, на сегодняшнюю домашку прикрепите предыдущую.
 
 DONE:
 1. Создать массив из пяти элементов, и произвести над ним следующие дкйствия:
