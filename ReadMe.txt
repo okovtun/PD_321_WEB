@@ -15,6 +15,18 @@ https://www.rfc-editor.org/rfc/rfc1945
 https://datatracker.ietf.org/doc/html/rfc1945
 
 TODO:
+1. Пользователь загружает файл типа 201 RAW.txt: https://github.com/okovtun/PD_212/tree/master/Inheritance/Files,
+   а программа создает из него 2 файла вида '201 ready.txt' и '201.dhcpd'.
+   Для проверки созданные файлы нужно вывести на страницу;
+2. Файл 201 ready.txt вывести в виде таблицы;
+3. *Скопировать картинку при помощи файловых операций;
+4. *На страницу загружена картинка, ее нейобходимо созранить в файл;
+
+TODO:
+1. В проекте UploadFile должно востпроизводиться видео;
+2. Добить проект UploadMultipleFiles;
+
+DONE:
 Добить отправку почты.
 
 DONE:
