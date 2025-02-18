@@ -14,9 +14,10 @@ TOREAD:
 https://www.rfc-editor.org/rfc/rfc1945
 https://datatracker.ietf.org/doc/html/rfc1945
 
-AJAX
-
 TODO:
+Реализовать Quiz при помощи AJAX. 
+
+DONE:
 1. Пользователь загружает файл типа 201 RAW.txt: https://github.com/okovtun/PD_212/tree/master/Inheritance/Files,
    а программа создает из него 2 файла вида '201 ready.txt' и '201.dhcpd'.
    Для проверки созданные файлы нужно вывести на страницу;
