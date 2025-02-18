@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>AJAX</title>
+</head>
+<body>
+	<h1>Asynchronous JavaScript And XML</h1>
+	<div id="hello">
+		Здесть будет содержимое, полученное при помощи AJAX.
+	</div>
+	<button type="button" onclick="loadDoc()">Load</button>
+	<script>
+		function loadDoc()
+		{
+			let request = new XMLHttpRequest();
+			request.onreadystatechange = function ()
+			{
+				if (this.readyState == 4 && this.status == 200)
+				{
+					//document.getElementById("hello").innerHTML = this.responseText;
+					loadXML(this);
+				}
+			};
+			request.open("GET", "ajax_info.txt", true);
+			request.send();
+		}
+		function loadXML(xml)
+		{
+
+		}
+	</script>
+</body>
+</html>
