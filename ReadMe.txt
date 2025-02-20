@@ -14,8 +14,13 @@ TOREAD:
 https://www.rfc-editor.org/rfc/rfc1945
 https://datatracker.ietf.org/doc/html/rfc1945
 
+IN PROGRESS:
+Реализовать Quiz при помощи AJAX.
+
 TODO:
-Реализовать Quiz при помощи AJAX. 
+1. Добавить кнопку 'Prev', которая переходит на предыдущий вопрос;
+2. Посчитать количество правильных и неправильных ответов;
+3. Пользователя, дату, время и результат сохранить в файл на сервере;
 
 DONE:
 1. Пользователь загружает файл типа 201 RAW.txt: https://github.com/okovtun/PD_212/tree/master/Inheritance/Files,
