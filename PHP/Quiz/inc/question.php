@@ -2,11 +2,12 @@
 require_once __DIR__.'/data.php';
 
 $number = $_REQUEST['q'];
+print_r($_REQUEST);
 if ($number < count($questions)) {
 	echo $number;
 	$response = "<h2>{$questions[$number]}</h2>";
 	for ($i = 0; $i < count($answers[$number]); $i++) {
-		$response .= "<input type=\"radio\" id=\"{$number}_{$i}\" name=\"question_{$number}\" value\"{$number}_{$i}\">";
+		$response .= "<input type=\"radio\" id=\"{$number}_{$i}\" name=\"question_{$number}\" value=\"{$number}_{$i}\">";
 		$response .= "<label for=\"{$number}_{$i}\">{$answers[$number][$i]};</label><br>";
 	}
 

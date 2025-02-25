@@ -25,5 +25,12 @@ $correct_answers =
         1,
 		2
 	];
-
+$user_answers = 
+	[
+		-1,
+		-1,
+		-1,
+		-1,
+		-1
+	]
 ?>

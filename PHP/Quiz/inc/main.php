@@ -14,11 +14,13 @@
     <script>
         var questionNumber = -1;
         function nextQuestion()
-		{
+        {
 			let request = new XMLHttpRequest();
+            commitAnswer();
             questionNumber++;
             request.onreadystatechange = function () {
                 document.getElementById("question_number").innerHTML = request.responseText;
+                //console.log(request.responseText);
             }
             request.open("GET", "question.php?q="+questionNumber, true);
             request.send();
@@ -33,7 +35,16 @@
             }
             request.open("GET", "question.php?q="+questionNumber, true);
             request.send();
-		}
+        }
+        function commitAnswer()
+        {
+            //https://stackoverflow.com/questions/15839169/how-to-get-the-value-of-a-selected-radio-button
+            let answer = document.querySelector(`input[name="question_${questionNumber}"]:checked`);
+            //let answer = document.querySelector(`input[name="question_${questionNumber}"]:checked`);
+            if (answer != null) console.log(answer.value);
+            else console.log("No answer")
+            //console.log(document.querySelectorAll("h1").innerHTML);
+        }
 		
     </script>
 </body>
