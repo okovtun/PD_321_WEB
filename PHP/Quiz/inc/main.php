@@ -12,16 +12,27 @@
         <!--<input type="button" value="next" onclick="nextQuestion()">-->
     </form>
     <script>
-        var questionNumber = 0;
+        var questionNumber = -1;
         function nextQuestion()
 		{
+			let request = new XMLHttpRequest();
+            questionNumber++;
+            request.onreadystatechange = function () {
+                document.getElementById("question_number").innerHTML = request.responseText;
+            }
+            request.open("GET", "question.php?q="+questionNumber, true);
+            request.send();
+		}
+		function prevQuestion()
+        {
+            if (questionNumber == 0) return;
+            questionNumber--;
 			let request = new XMLHttpRequest();
             request.onreadystatechange = function () {
                 document.getElementById("question_number").innerHTML = request.responseText;
             }
             request.open("GET", "question.php?q="+questionNumber, true);
             request.send();
-            questionNumber++;
 		}
 		
     </script>

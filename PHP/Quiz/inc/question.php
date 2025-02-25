@@ -2,7 +2,7 @@
 require_once __DIR__.'/data.php';
 
 $number = $_REQUEST['q'];
-if ($number < count($questions) - 1) {
+if ($number < count($questions)) {
 	echo $number;
 	$response = "<h2>{$questions[$number]}</h2>";
 	for ($i = 0; $i < count($answers[$number]); $i++) {
@@ -10,6 +10,7 @@ if ($number < count($questions) - 1) {
 		$response .= "<label for=\"{$number}_{$i}\">{$answers[$number][$i]};</label><br>";
 	}
 
+	$response .= "<input type=\"button\" value=\"prev\" onclick=\"prevQuestion()\">";
 	$response .= "<input type=\"button\" value=\"next\" onclick=\"nextQuestion()\">";
 } 
 else 
