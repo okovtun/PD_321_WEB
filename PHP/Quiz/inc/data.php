@@ -27,10 +27,6 @@ $correct_answers =
 	];
 $user_answers = 
 	[
-		-1,
-		-1,
-		-1,
-		-1,
-		-1
+
 	]
 ?>

@@ -5,8 +5,10 @@ echo '</pre>';
 
 require_once __DIR__ . '/data.php';
 
-$asked_questions = array_keys($_POST);
-$user_answers	 = array_values($_POST);
+print_r($user_answers);
+
+//$asked_questions = array_keys($_POST);
+//$user_answers	 = array_values($_POST);
 $score = 0;
 for ($i = 0; $i < count($user_answers); $i++) {
 	$origin_number = explode('_', $asked_questions[$i])[1];

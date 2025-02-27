@@ -2,7 +2,19 @@
 require_once __DIR__.'/data.php';
 
 $number = $_REQUEST['q'];
+$answer;
+echo '<pre>';
+if (array_key_exists('a', $_REQUEST) == true) {
+	$answer = $_REQUEST['a'];
+	$question_number = explode('_', $answer)[0];
+	$user_answer = explode('_', $answer)[1];
+	$user_answers[$question_number] = $user_answer;
+	echo 'Answer:';
+	print_r($user_answers);
+}
 print_r($_REQUEST);
+//print_r($user_answers);
+echo '</pre>';
 if ($number < count($questions)) {
 	echo $number;
 	$response = "<h2>{$questions[$number]}</h2>";
@@ -17,7 +29,8 @@ if ($number < count($questions)) {
 else 
 {
 	$response = "<h2>Вы ответили на все вопросы. Нажмите кнопку 'Submit', чтобы узнать результаты теста.</h2>";
-	$response .= "<input type=\"submit\" value=\"Submit\" onclick=\"nextQuestion()\">";
+	$response .= "<input type=\"submit\" value=\"Submit\">";
+	//$response .= "<input type=\"submit\" value=\"Submit\" onclick=\"nextQuestion()\">";
 }
 
 echo $response;
