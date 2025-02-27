@@ -24,5 +24,5 @@ echo "Количество правильных ответов {$score} из {$t
 //foreach ($_POST as $user_answer) {
 //	$variant = explode('_', $user_answer);
 //}
-
+session_destroy();
 ?>
