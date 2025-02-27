@@ -10,7 +10,9 @@ if (array_key_exists('a', $_REQUEST) == true) {
 	$user_answer = explode('_', $answer)[1];
 	$user_answers[$question_number] = $user_answer;
 	echo 'Answer:';
-	print_r($user_answers);
+	//print_r($user_answers);
+	$_SESSION['user_answers'][$question_number] = $user_answer;
+	print_r($_SESSION);
 }
 print_r($_REQUEST);
 //print_r($user_answers);

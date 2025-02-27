@@ -1,4 +1,7 @@
-<?php require_once __DIR__.'/data.php' ?>
+<?php
+//session_start();
+require_once __DIR__.'/data.php' 
+?>
 <!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
@@ -9,3 +12,4 @@
 </head>
 <body>
 
+    <?php print_r($_SESSION) ?>
