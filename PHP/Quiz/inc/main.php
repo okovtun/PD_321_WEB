@@ -32,12 +32,15 @@
 		function prevQuestion()
         {
             if (questionNumber == 0) return;
+            let answer = getAnswer();
             questionNumber--;
-			let request = new XMLHttpRequest();
+            let request = new XMLHttpRequest();
             request.onreadystatechange = function () {
                 document.getElementById("question_number").innerHTML = request.responseText;
             }
-            request.open("GET", "question.php?q="+questionNumber, true);
+            //request.open("GET", "question.php?q="+questionNumber, true);
+            if(answer == null)request.open("GET", "question.php?q="+questionNumber, true);
+            else request.open("GET", "question.php?q="+questionNumber+"&a="+answer.value, true);
             request.send();
         }
         function getAnswer()
