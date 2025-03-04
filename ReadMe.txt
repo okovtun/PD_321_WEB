@@ -10,11 +10,18 @@ PHP configuration:
 https://www.php.net/manual/en/install.windows.iis.php
 https://learn.microsoft.com/en-us/iis/configuration/system.webserver/fastcgi/
 
+PHP VS plugin:
+https://disk.yandex.ru/d/rSET6R3YotXaVA
+
 TOREAD:
 https://www.rfc-editor.org/rfc/rfc1945
 https://datatracker.ietf.org/doc/html/rfc1945
 
 TODO:
+1. Сохранить группу в файл;
+2. Загрузить группу из файла;
+
+DONE:
 1. Форма 'result.php' должна отправлять результат тестирования на E-mail респондента по его желанию;
 2. На форму 'result.php' добавить кнопку 'Завершить тестирование',
    которая перенаправит пользователя на страницу 'login.php';
