@@ -79,7 +79,9 @@ echo '</table>';*/
 
 //save($group, "group.csv");
 echo '<pre>';
-load("group.csv");
+$group = load("group.csv");
 echo '</pre>';
+
+table_group($group);
 
 ?>
