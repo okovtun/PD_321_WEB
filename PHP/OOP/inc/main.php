@@ -2,6 +2,7 @@
 require_once __DIR__ . '/point.php';
 require_once __DIR__ . '/inheritance.php';
 require_once __DIR__ . '/data.php';
+require_once __DIR__ . '/functions.php';
 
 //$A = new Point();
 ////$A->set_x(1024);
@@ -76,10 +77,11 @@ echo '</table>';
 
 //////////////////////////////////////////////////////////////
 
-$file = fopen("group.txt", "w");
-for ($i = 0; $i < count($group); $i++) {
-	fwrite($file, $group[$i] . "\n");
-}
-fclose($file);
+//$file = fopen("group.txt", "w");
+//for ($i = 0; $i < count($group); $i++) {
+//	fwrite($file, $group[$i]->csv() . ";\n");
+//}
+//fclose($file);
+save($group, "group.csv");
 
 ?>

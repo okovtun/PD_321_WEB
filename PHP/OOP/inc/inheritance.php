@@ -44,6 +44,12 @@ class Human
 	}
 
 	function info(){}
+	function csv()
+	{
+		//CSV - Comma Separated Values
+		$type = get_class($this);
+		return "{$type}:{$this->first_name},{$this->last_name},{$this->age}";
+	}
 
 	function __tostring()
 	{
@@ -112,7 +118,10 @@ class Student extends Human
 	{
 		return "Group:{$this->get_group()}, Rating:{$this->get_rating()}, Attendance:{$this->get_attendence()}";
 	}
-
+	function csv()
+	{
+		return parent::csv() . ",{$this->speciality},{$this->group},{$this->rating},{$this->attendance}";
+	}
 	function __tostring()
 	{
 		echo '<pre>';
@@ -149,6 +158,10 @@ class Graduate extends Student
 	function info()
 	{
 		return parent::info() . " Subject:{$this->get_subject()}";
+	}
+	function csv()
+	{
+		return parent::csv() . ",{$this->subject}";
 	}
 
 	function __tostring()
@@ -195,7 +208,10 @@ class Teacher extends Human
 	{
 		return "Experience:{$this->get_experience()}";
 	}
-
+	function csv()
+	{
+		return parent::csv() . ",{$this->speciality},{$this->experience}";
+	}
 	function __tostring()
 	{
 		return parent::__tostring() . " {$this->speciality} {$this->experience}";
