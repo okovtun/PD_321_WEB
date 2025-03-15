@@ -1,13 +1,18 @@
 <?php
+//session_start();
+//echo '<pre>';
+////var_dump($id);
+//print_r($_REQUEST);
+//echo '</pre>';
+$id = $_REQUEST["id"];
 
-function get_teachers_for_discipline($id)
-{
-$server_name	= "DESKTOP-0TCDSR6\SQLEXPRESS";
-$connection_info = array("UID" => "PHP", "PWD" => "111", "Database" => "PD_212", "CharacterSet" => "UTF-8");
+if ($id > 0) {
+	$server_name = "DESKTOP-0TCDSR6\SQLEXPRESS";
+	$connection_info = array("UID" => "PHP", "PWD" => "111", "Database" => "PD_212", "CharacterSet" => "UTF-8");
 
-$connection = sqlsrv_connect($server_name, $connection_info);
+	$connection = sqlsrv_connect($server_name, $connection_info);
 
-$query = "SELECT
+	$query = "SELECT
 		teacher_id,
 		FORMATMESSAGE(N'%s %s %s', last_name, first_name, middle_name) AS 'full_name',
 		birth_date,
@@ -17,30 +22,36 @@ FROM	Disciplines
 JOIN	TeachersDisciplinesRelation	ON	(discipline=discipline_id)
 JOIN	Teachers					ON	(teacher=teacher_id)
 WHERE	discipline_id	=	{$id}";
-	$result = $sqlsrv_query($connection, $query);
+	$result = sqlsrv_query($connection, $query);
+	//echo '<pre>';
+//var_dump($result);
+//echo '</pre>';
+
 	while ($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)) {
 		echo '<tr>';
 
 		echo '<td>';
-		echo $row['group_id'];
+		echo $row["teacher_id"];
 		echo '</td>';
 
 		echo '<td>';
-		echo $row['group_name'];
+		echo $row["full_name"];
 		echo '</td>';
 
 		echo '<td>';
-		echo $row['students_count'];
+		echo $row["birth_date"]->format("d.m.Y");
 		echo '</td>';
 
 		echo '<td>';
-		echo $row['direction_name'];
+		echo $row["experience"];
 		echo '</td>';
+
 
 		echo '</tr>';
 	}
 
 	sqlsrv_close($connection);
+} else {
+	require_once __DIR__ . '/get_teachers.php';
 }
-
 ?>
