@@ -1,5 +1,5 @@
 <?php
-
+phpinfo();
 sqlsrv_configure("LogSubsystems", SQLSRV_LOG_SYSTEM_CONN);
 
 $server_name = "DESKTOP-0TCDSR6\SQLEXPRESS";

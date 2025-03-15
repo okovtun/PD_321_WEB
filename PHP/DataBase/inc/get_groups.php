@@ -18,12 +18,22 @@ $connection = sqlsrv_connect($server_name, $connection_info);
 //var_dump($connection);
 //echo '</pre>';
 
-$query = "SELECT group_id, group_name, direction_name FROM Groups,Directions WHERE direction=direction_id;";
+$query =
+	//"SELECT group_id, group_name, COUNT(stud_id) AS students_count, direction_name FROM Students,Groups,Directions WHERE [group]=group_id AND direction=direction_id GROUP BY group_id,group_name,direction_name;";
+	"SELECT
+			group_id,
+			group_name,
+			COUNT(stud_id)	AS students_count,
+			direction_name
+FROM		Students	
+RIGHT JOIN		Groups		ON	([group]	=	group_id)
+RIGHT JOIN		Directions	ON	(direction	=	direction_id)
+GROUP BY	group_id,group_name,direction_name;";
 $result = sqlsrv_query($connection, $query);
 
-//echo '<pre>';
-//var_dump($result);
-//echo '</pre>';
+echo '<pre>';
+var_dump($result);
+echo '</pre>';
 while ($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)) {
 	echo '<tr>';
 
@@ -34,12 +44,14 @@ while ($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)) {
 	echo '<td>';
 	echo $row['group_name'];
 	echo '</td>';
+	
+	echo '<td>';
+	echo $row['students_count'];
+	echo '</td>';
 
 	echo '<td>';
 	echo $row['direction_name'];
 	echo '</td>';
-
-
 
 	echo '</tr>';
 }
