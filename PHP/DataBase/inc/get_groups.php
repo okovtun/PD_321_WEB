@@ -5,6 +5,7 @@
 //echo '</td>';
 //echo '</tr>';
 
+/*
 $server_name = "DESKTOP-0TCDSR6\SQLEXPRESS";
 //$username = "PHP";
 //$password = "111";
@@ -17,6 +18,10 @@ $connection = sqlsrv_connect($server_name, $connection_info);
 //echo '<pre>';
 //var_dump($connection);
 //echo '</pre>';
+*/
+
+require_once __DIR__ . '/connection.php';
+require_once __DIR__ . '/format_table.php';
 
 $query =
 	//"SELECT group_id, group_name, COUNT(stud_id) AS students_count, direction_name FROM Students,Groups,Directions WHERE [group]=group_id AND direction=direction_id GROUP BY group_id,group_name,direction_name;";
@@ -31,6 +36,9 @@ RIGHT JOIN		Directions	ON	(direction	=	direction_id)
 GROUP BY	group_id,group_name,direction_name;";
 $result = sqlsrv_query($connection, $query);
 
+format_table($result);
+
+/*
 echo '<pre>';
 var_dump($result);
 echo '</pre>';
@@ -55,6 +63,7 @@ while ($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)) {
 
 	echo '</tr>';
 }
+*/
 
 sqlsrv_close($connection);
 ?>
