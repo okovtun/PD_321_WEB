@@ -5,12 +5,16 @@ VisualStudioVersion = 15.0.28307.421
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "PD_321_PHP", "PD_321_PHP\PD_321_PHP.ssmssqlproj", "{CA446E10-32A1-4BE0-B73A-FCBBE3E57E44}"
 EndProject
+Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "Teachers", "Teachers\Teachers.ssmssqlproj", "{C1BA5019-1708-40FA-A61F-F4F77696BC13}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Default|Default = Default|Default
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{CA446E10-32A1-4BE0-B73A-FCBBE3E57E44}.Default|Default.ActiveCfg = Default
+		{B9922CA9-336C-4B0C-AA9B-1A8B9E34FD0E}.Default|Default.ActiveCfg = Default
+		{C1BA5019-1708-40FA-A61F-F4F77696BC13}.Default|Default.ActiveCfg = Default
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
