@@ -7,14 +7,17 @@ Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "PD_321_PHP", "PD_321_PHP\PD
 EndProject
 Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "Teachers", "Teachers\Teachers.ssmssqlproj", "{C1BA5019-1708-40FA-A61F-F4F77696BC13}"
 EndProject
+Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "Groups", "Groups\Groups.ssmssqlproj", "{3D1FDD95-F0C4-4505-8ACE-C5B7B11F0268}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Default|Default = Default|Default
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{344E516A-7E3B-45F9-AD67-891BB716D71C}.Default|Default.ActiveCfg = Default
 		{CA446E10-32A1-4BE0-B73A-FCBBE3E57E44}.Default|Default.ActiveCfg = Default
-		{B9922CA9-336C-4B0C-AA9B-1A8B9E34FD0E}.Default|Default.ActiveCfg = Default
 		{C1BA5019-1708-40FA-A61F-F4F77696BC13}.Default|Default.ActiveCfg = Default
+		{3D1FDD95-F0C4-4505-8ACE-C5B7B11F0268}.Default|Default.ActiveCfg = Default
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
