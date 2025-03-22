@@ -9,13 +9,16 @@
 <body>
 	<h1>Преподаватели</h1>
 	<h2>Дисциплины</h2>
-	<select onchange="getTeachersForDiscipline(this.value)">
-		<!--<option value="value">text</option>-->
-		<option value="0" style="text-align:center;"> ---	Все дисциплины ---
-		</option>
-		<?php require_once __DIR__ . '/get_disciplines_to_combo_box.php' ?>
-	</select>
-	<table >
+	<form action="teacher_create_form.html">
+		<select onchange="getTeachersForDiscipline(this.value)">
+			<!--<option value="value">text</option>-->
+			<option value="0" style="text-align:center;"> ---	Все дисциплины ---
+			</option>
+			<?php require_once __DIR__ . '/get_disciplines_to_combo_box.php' ?>
+		</select>
+		<input type="submit" value="Добавить" />
+	</form>
+	<table>
 		<thead>
 			<tr>
 				<th>ID</th>
@@ -32,16 +35,16 @@
 		function getTeachersForDiscipline(id) {
 			//if (id > 0)
 			//{
-				console.log(id);
-				let request = new XMLHttpRequest();
-				request.onreadystatechange = function () {
-					if (this.readyState == 4 && this.status == 200)
-						//alert(this.responseText);
-						document.getElementById("table-teachers").innerHTML = this.responseText;
+			console.log(id);
+			let request = new XMLHttpRequest();
+			request.onreadystatechange = function () {
+				if (this.readyState == 4 && this.status == 200)
+					//alert(this.responseText);
+					document.getElementById("table-teachers").innerHTML = this.responseText;
 
-				};
-				request.open("GET", "get_teachers_for_discipline.php?id="+id, true);
-				request.send();
+			};
+			request.open("GET", "get_teachers_for_discipline.php?id=" + id, true);
+			request.send();
 			//}
 		}
 	</script>
