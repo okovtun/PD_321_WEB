@@ -34,10 +34,14 @@ echo '</pre>';
 
 		$daterange = date_diff(date_create($row['work_since']->format('d.m.Y')), date_create());
 		//var_dump($daterange);
-
+		print_r($_REQUEST);
 		echo '</pre>';
 
 		echo "Опыт преподавания: {$daterange->format('%y years')}";
+
+		echo "<form action=\"teacher_update_form.php?id={$_REQUEST['id']}\" method=\"POST\">";
+		echo '<input type="submit">';
+		echo '</form>';
 	}
 }
 ?>
