@@ -24,7 +24,7 @@ function format_table($result)
 		//echo '<pre>';
 		//echo $id;
 		//echo '</pre>';
-		echo "<a href=\"{$record}.php?id={$row[$id]}\">Подробно</a>";
+		echo "<a href=\"../{$record}s/{$record}.php?id={$row[$id]}\">Подробно</a>";
 		echo '</td>';
 		echo "</tr>";
 	}

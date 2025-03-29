@@ -3,7 +3,7 @@
 //print_r($_REQUEST);
 //echo '</pre>';
 
-require_once __DIR__ . '/connection.php';
+require_once __DIR__ . '/../connection.php';
 $query = "INSERT TeachersDisciplinesRelation(teacher,discipline) VALUES(?,?)";
 $values = array
 (
@@ -17,7 +17,7 @@ $stmt = sqlsrv_query($connection, $query, $values);
 //echo '</pre>';
 
 $_REQUEST['id'] = $_REQUEST['discipline_id'];
-require_once __DIR__ . "/get_teachers_for_discipline.php";
+require_once __DIR__ . "/../Teachers/get_teachers_for_discipline.php";
 
 //require_once __DIR__."/get_teachers_for_discipline.php?id={$_REQUEST['discipline_id']}";
 //echo '<pre>';
