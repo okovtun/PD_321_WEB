@@ -7,8 +7,8 @@ $connection_info	= array("UID"=>"PHP", "PWD"=>"111", "Database"=>"PD_212", "Char
 $connection = sqlsrv_connect($server_name, $connection_info);
 */
 
-require_once __DIR__ . '/connection.php';
-require_once __DIR__ . '/format_table.php';
+require_once __DIR__ . '/../connection.php';
+require_once __DIR__ . '/../format_table.php';
 
 $query = "SELECT
 		teacher_id,

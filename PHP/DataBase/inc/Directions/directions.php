@@ -19,7 +19,7 @@ var_dump($connection);*/
 //WHERE
 //(das.name=@_msparam_0)";
 
-require_once __DIR__ . '/connection.php';
+require_once __DIR__ . '/../connection.php';
 
 $query = "SELECT * FROM Directions;";
 $results = sqlsrv_query($connection, $query);
