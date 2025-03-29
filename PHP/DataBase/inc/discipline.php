@@ -45,14 +45,27 @@
 			let teacher_id		= document.getElementById("selected-teacher").value;
 			let discipline_id	= document.getElementById("discipline-id").innerText;
 			document.getElementById("debug").innerHTML = `disciplineID:${discipline_id};teacherID:${teacher_id}`;
-			alert(`disciplineID:${discipline_id};teacherID:${teacher_id}`);
+			//alert(`disciplineID:${discipline_id};teacherID:${teacher_id}`);
 
 			let request = new XMLHttpRequest();
 			request.onreadystatechange = function ()
 			{
-				document.getElementById("response").innerHTML = this.responseText;
+				//document.getElementById("table-teachers").innerHTML = this.responseText;
+				getTeachersForDiscipline();
 			}
 			request.open("GET", `set_teacher_for_discipline.php?teacher_id=${teacher_id}&discipline_id=${discipline_id}`, true);
+			request.send();
+			//window.location.reload(true);
+		}
+		function getTeachersForDiscipline()
+		{
+			let discipline_id = document.getElementById("discipline-id").innerText;
+			let request = new XMLHttpRequest();
+			request.onreadystatechange = function ()
+			{
+				document.getElementById("table-teachers").innerHTML = this.responseText;
+			}
+			request.open("GET", `get_teachers_for_discipline.php?id=${discipline_id}`, true);
 			request.send();
 		}
 	</script>

@@ -1,6 +1,7 @@
 <?php
 //session_start();
 //echo '<pre>';
+//echo '<h3>get_teachers_for_discipline.php:</h3>';
 ////var_dump($id);
 //print_r($_REQUEST);
 //echo '</pre>';
